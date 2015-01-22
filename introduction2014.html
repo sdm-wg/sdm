@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="description" content="">
+            <meta name="author" content="">
+              <link rel="icon" href="favicon.ico">
+                
+                <title>Software Defined Media WG in WIDE</title>
+                
+                <!-- Bootstrap core CSS -->
+                <link href="./css/bootstrap.css" rel="stylesheet">
+                  <!-- Bootstrap theme -->
+                  <link href="./css/bootstrap-theme.css" rel="stylesheet">
+                    
+                    <!-- Custom styles for this template -->
+                    <link href="./css/theme.css" rel="stylesheet">
+                      
+                      
+                      
+                      
+                      </head>
+  
+  <body role="document">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://sdm.wide.ad.jp/"><img src="logos/SDM-logo.png" style="width:50px" alt="SDM logo"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://sdm.wide.ad.jp/">Home</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+    <div class="container" role="main">
+      
+      <div class="content-block">
+        <section id="en">
+          <div class="container">
+            <h1>Introduction</h1>
+            <p>The target of a professional audio system includes 1) PA/SR systems for Live sound, 2) Production systems for Broadcasting, Music or Cinema or 3) BGM or Paging system. The signals need to be transferred among the above systems in uncompressed data format. For example, it requires 148Mbps for payload bandwidth in the case of transmitting 128 channels with 48kHz and 24bits. In order to fulfill the requirements of precise time synchronization and low latency, analog line has been used for a long time. However recently, IP network is replacing the analog line of the audio systems thanks to the deployment of 1Gbps IP networks.
+            </p>
+            <p>
+            From the background, the notion of software defined audio is born. Software defined audio is an architectural approach to audio as a service by virtualization and abstraction of networked audio infrastructure. Software defined audio allows operators to manage audio services through abstraction of lower level functionality. This is done by decoupling the software that makes decisions about how to render the audio service from the underlying infrastructure that inputs and outputs the sound. Thanks to the decoupling, the system can configure flexible and intelligent audio service in order to match a program played on the stage and the direction of the play.
+            </p>
+            <p>
+            For example, the stage configuration of a theater varies with the performance such as drama, musical, classic music, band music or lecture. In order to adapt such configurations, the signal flow of an audio system must be reconfigured. Currently, reconfiguration of signal flow is achieved with physical cable patching or large matrix switching, which is inflexible and complicated. Software defined audio provides flexibility to the system by using software to manage the reconfiguration to satisfy the needs of the performance. Therefore, with the software based reconfiguration management, it become much easier to use one room for multiple situations (i.e. cinema, music, teleconferencing or lecture).
+            </p>
+            <p>
+            In the case that the above system is connected to a remote site, the audio service configured by software defined audio takes a role of ether broadcasting station or playing station, or both of them. First the broadcasting station sends the signals from the local audio infrastructure (i.e. contents) to the remote site(s) with the format independent to system configuration in order to optimize the quality of played sound best adapted to remote site infrastructure. The contents from the broadcasting station are managed with standardized meta-data and tags attached to the audio packets so that they can be selected by the context while maintaining the flexibility. Seconds, the role of playing station is to reproduce the contents optimized for the remote site infrastructure. The audio infrastructure of the local and the remote site is virtualized by the scheme of software defined audio so that the difference of the infrastructure is hidden. This allows the decision-making software to render the contents from local and remote sites independent from the difference.
+            </p>
+            <p>
+            The audio service at remote site is classified into two cases: the contents from broadcasting station are kept in the storage as online contents and then reproduced, or the contents from the broadcasting station are sent to the remote site and reproduced in real time. The latter case has more advanced technical requirements including the time synchronization among the multiple channels. In order to evaluate if our proposal fulfill these advanced requirements, we plan to conduct an experiment during the Olympic game in Rio de Janeiro, Brazil (from 5th to 21st August 2016), that connects the remote stations (Olympic site, Japanese partners and European partners) in real time.
+            </p>
+            <p>2014/01/22</p>
+            
+          </div>
+        </section>
+      </div>
+
+
+      <div class="content-block">
+        <section id="ja">
+          <div class="container">
+            <h1>設立趣意書</h1>
+            <p>プロフェッショナル向けのオーディオシステムには、1)コンサートホールや劇場における拡声システム、2)放送・映画・音楽制作等で使われる制作システム、3)BGMや館内放送のための音響設備などがある。上記のシステム間で、信号の伝送を行う場合は非圧縮での伝送が要求されるが、例えば48kHz・24bitの信号を128ch伝送する場合、メディア容量（Payload）だけで約148Mbpsと100Mbpsを超えるバンド幅が必要となる。こうしたオーディオシステムでは高精度同期と低遅延を求められるため、従来はアナログの線でシステム間を結ぶ必要があったが、IPを利用した1Gbps環境の一般化により、IPによるネットワーク化が可能となった。
+            </p>
+            <p>
+            Software Defined Audioとは、拡声システムや音響設備といったオーディオ設備のIPネットワーク化を背景に、これらの設備の機能に対して抽象化・仮想化を行い、サービスとしてのオーディオを提供するための基盤的なアプローチである。Software Defined Audioでは、下層のオーディオ機能を抽象化して管理することで、全体の意思決定を行うソフトウェアシステムと、実際の音声の入出力を行うデバイスを引き離して（decoupling）扱うことが可能となる。これにより、演奏・上映される演目や、その演出上の目的のために、柔軟かつインテリジェントに、オーディオ・システムを構成することができる。
+            </p>
+            <p>
+            例えば、劇場は演劇、軽音楽、講演といった様々な演目に対応する必要があり、各演目によって要求される伝送路が異るため伝送路も必要に応じて組み替えるが、現在はアナログパッチの差し替えや大規模なマトリクス等によってこの組み替えを実現しているため、処理が煩雑になり、また事前の設定のとおりに組み替えるため柔軟性に欠けていた。Software Defined Audioは、ソフトウェアによって伝送路の組み換えを制御することによって、目的に応じた柔軟なシステム構成を取ることが可能になり、舞台の演出に高い利便性を提供することが可能となる。また、１つのシステムを講演会、遠隔会議、小規模音楽イベント、映画や放送の上映など様々なアプリケーション向けに最適化し活用することも容易になる。
+            </p>
+            <p>
+            さらに、上記のシステムを遠隔地とつなぐ際、Software Defined Audioで構成されたオーディオ・サービスは、放送局と再生局のどちらか、または両方の役割を担うことになる。まず、放送局の役割としては、ローカルで入力された信号（コンテンツ）を遠隔地に送信することであるが、この際にピアとなる遠隔地での出力環境に合わせて最適に再生可能となるように、オーディオの入出力設備に依存しない形で送信する。放送局から送信されるコンテンツに対し、標準化されたメタデータや、タグを付与することで、ソフトウェアによって柔軟なコンテンツ管理や、状況に応じたコンテンツ選択を制御する。次に、再生局の役割としては、遠隔地から受信したコンテンツをローカルの入出力環境に応じて、再生することである。この際、ローカルのオーディオ設備と遠隔地のオーディオ設備の機能は、Software Defined Audioによる仮想化が行われているため、その差異が隠蔽され、同一の意思決定を行うソフトウェアシステムによって制御がなされる。
+            </p>
+            <p>
+            また、遠隔地をつなぐオーディオ・サービスとしては、オンライン・コンテンツとして記憶装置に保存しておく場合と、リアルタイムに送受信を行う場合があり、後者のほうが複数チャネル間の時刻同期などの技術的要求水準が高い。そのため、本プロジェクトでは、2016年8月5日から8月21日まで、ブラジル・リオデジャネイロで開催されるオリンピックにおいて、競技開催地と日本・欧州諸国のパートナーをリアルタイムでつなぐ、パブリックビューイングを計画している。
+            </p>
+            <p>2014/01/22</p>
+
+          </div>
+        </section>
+      </div>
+      
+
+
+    </div> <!-- /container -->
+    
+    
+    <div class="copyright-block">
+      <div class="container">
+        
+        
+        
+        
+        
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12 left">
+            &copy; Software Defined Media
+          </div>
+          <div class="col-md-6 col-sm-6 right hidephone">
+            Contact: Manabu Tsukada (tsukada@hongo.wide.ad.jp)
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Bootstrap core JavaScript
+     ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    
+    <!-- SCRIPTS -->
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="plugins/fancybox/fancybox-1.3.4.pack.js"></script>
+    <script src="plugins/validation/validation-2.2.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/custom.js"></script>
+    
+  </body>
+</html>
