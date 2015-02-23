@@ -131,3 +131,19 @@ p {
 @media (min-width: 798px) and (max-width: 1021px) {...}
 
 @media (min-width: 1022px) and (max-width: 1229px) {...}
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: auto;
+  max-height: 480px;
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
