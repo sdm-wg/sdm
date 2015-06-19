@@ -14,30 +14,6 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700');
 
 
-body {
-  padding-top: 70px;
-/*  padding-bottom: 30px;*/
-}
-
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.theme-showcase > p > .btn {
-  margin: 5px 0;
-}
-
-.theme-showcase .navbar .container {
-  width: auto;
-}
-
-
-.theme-showcase .navbar .container {
-  width: auto;
-}
-
 .map-block{
   background: transparent;
   padding: 30px 0px;
@@ -63,20 +39,3 @@ body {
 [class*="animate-"] .overlay {
   background: #99d4a5;
 }
-
-#meetourteamSection .span6, #contactSection .span6{ float:none; margin:0 auto; text-align:center;}
-#recentpostSection .span6, #contactSection .span6{ float:none; margin:0 auto; text-align:center;}
-#contactSection{ background:#3b3b3b; text-align:center; padding:70px 0 0;}
-#contactSection .span8{ float:none; margin:0 auto;}
-#contactSection h1{ text-transform:uppercase; color:#fff; padding:0;font-size:60px;}
-#contactSection p {
-  color: #fff;
-  font-size: 19px;
-  line-height: 27px;
-  margin: 15px 0;
-}
-#contactSection .footerSection .copyright p{ color:#a2a3a3;}
-
-
-#contactSection .footerSection .span8{ float:left; margin:0 0 0 25px;}
-
