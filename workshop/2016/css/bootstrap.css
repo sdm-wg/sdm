@@ -4878,14 +4878,6 @@ a.badge:focus {
   
   text-align: center;
   color: #fff;
-  background-attachment: scroll;
-  background: url(../img/banner.jpg) 50% 50% no-repeat;
-  background-position: center center;
-  background-repeat: none;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   
   
 }
