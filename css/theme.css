@@ -39,3 +39,52 @@
 [class*="animate-"] .overlay {
   background: #99d4a5;
 }
+
+/* Paper definitions
+ ----------------------------------------------- */
+
+ol li {
+  list-style-type: decimal;
+  margin-bottom: 0.7em;
+}
+
+li.paper {
+  background: #f8f8f8;
+  margin-left: 1em;
+  border-left: solid 5px #a5d2da;
+  padding-left: 0.5em;
+  padding-right: 0.2em;
+}
+
+
+div.paper_title{
+  font-size: 120%;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+  
+}
+
+div.author{
+  margin-bottom: 0.3em;
+  margin-left: 0em;
+  font-size: 100%;
+}
+
+div.paper_info{
+  margin-left: 0em;
+  font-size: 100%;
+  color: gray;
+  padding-left: 0em;
+  /* background: #ddddff;
+   border-left: solid 3px #C7C7C7;
+   */
+  
+  
+}
+
+div.paper_link{
+  float:right;
+  text-align:right;
+}
+
+
