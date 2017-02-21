@@ -1,0 +1,8 @@
+AddHandler cgi-script htaccess
+
+AuthUserFile .htpasswd
+AuthGroupFile /dev/null
+AuthName "Please enter username and password"
+AuthType Basic
+
+require valid-user
