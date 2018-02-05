@@ -20,6 +20,13 @@
                   <link href="css/freelancer.css" rel="stylesheet">
                     <link href="css/theme.css" rel="stylesheet">
 
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+                    <link rel="stylesheet" href="css/Simple-Slider.css">
+                    <link rel="stylesheet" href="css/Brands.css">
+
+
+
+
                       <!-- Custom Fonts -->
                       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
                         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -95,11 +102,25 @@
     <!-- Carousel
      ================================================== -->
 
+
+     <div class="simple-slider">
+       <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(&quot;img/billboard-2017/photo6.jpg&quot;);background-size:cover;"></div>
+            <div class="swiper-slide" style="background-image:url(&quot;img/keio-collegium-2016/photo-4.jpg&quot;);"></div>
+            <div class="swiper-slide" style="background-image:url(&quot;img/KMDForum2017/photo1.jpg&quot;);"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+<!--
     <header>
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="container">
 
-          <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -137,18 +158,18 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div> <!-- /container -->
+        </div>
 
-      </div><!-- /.carousel -->
+      </div>
     </header>
-
+-->
 
     <!-- About Section -->
     <section  id="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2>About Software Defined Media WG</h2>
+            <h2>Software Defined Media</h2>
             <hr class="star-primary">
           </div>
         </div>
@@ -417,6 +438,37 @@
 
 
     <!-- ===== people ===== -->
+
+<!--
+    <div class="team-clean">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="height:8px;margin:41px;padding:0;">Team </h2>
+            </div>
+            <div class="row people">
+                <div class="col-md-4 col-sm-6 item"><img class="img-circle" src="assets/img/1.jpg">
+                    <h3 class="name">Hiroshi Esaki</h3>
+                    <p class="title">Professor</p>
+                    <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                </div>
+                <div class="col-md-4 col-sm-6 item"><img class="img-circle" src="assets/img/2.jpg">
+                    <h3 class="name">Manabu Tsukada</h3>
+                    <p class="title">Assistant Professor</p>
+                    <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                </div>
+                <div class="col-md-4 col-sm-6 item"><img class="img-circle" src="assets/img/3.jpg">
+                    <h3 class="name">Carl Kent</h3>
+                    <p class="title">Stylist</p>
+                    <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  -->
+
+
+
+
     <section id="people">
       <div class="container">
         <div class="row">
@@ -454,8 +506,21 @@
           </div>
 
 
+          <div class="brands">
+            <a href="">
+              <img src="logos/UTokyo.png" style="height:60px;">
+              <img src="logos/Keio.png" style="height:60px;">
+              <img src="logos/Yamaha.png" style="height:60px;">
+              <img src="logos/Dolby.png" style="height:60px;">
+              <img src="logos/NTT.png" style="height:60px;">
+              <img src="logos/KDDI.png" style="height:60px;">
+              <img src="logos/Panasonic.png" style="height:60px;">
+              <img src="logos/Bandai_Namco_Studios.png" style="height:60px;">
+              <img src="logos/alphacode.png" style="height:60px;">
+              <img src="logos/sed_logo.gif" style="height:60px;"></a>
+            </div>
 
-
+<!--
           <div class="col-sm-6">
             <img src="logos/UTokyo.png" alt="UTokyo" style="width: 150px">
               </div>
@@ -493,9 +558,11 @@
             <img src="logos/sed_logo.gif" alt="alphacode" style="width: 150px">
 
           </div>
+        -->
         </div>
       </div>
     </section>
+  -->
 
 
     <!-- ===== papers ===== -->
@@ -929,8 +996,6 @@ Media</div>
 
 
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -953,8 +1018,6 @@ Media</div>
     <!-- Bootstrap core JavaScript
      ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
 
     <!-- SCRIPTS -->
@@ -963,6 +1026,12 @@ Media</div>
     <script src="plugins/validation/validation-2.2.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="js/custom.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="js/Simple-Slider.js"></script>
+
+
+
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
