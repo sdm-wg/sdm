@@ -1382,6 +1382,37 @@ body {
     flex: auto!important;
   }
 }
+.jq-selectbox li:hover,
+.jq-selectbox li.selected {
+  background-color: #149dcc;
+  color: #ffffff;
+}
+.jq-selectbox .jq-selectbox__trigger-arrow,
+.jq-number__spin.minus:after,
+.jq-number__spin.plus:after {
+  transition: 0.4s;
+  border-top-color: currentColor;
+  border-bottom-color: currentColor;
+}
+.jq-selectbox:hover .jq-selectbox__trigger-arrow,
+.jq-number__spin.minus:hover:after,
+.jq-number__spin.plus:hover:after {
+  border-top-color: #149dcc;
+  border-bottom-color: #149dcc;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default,
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current,
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current {
+  color: #ffffff !important;
+  background-color: #149dcc !important;
+  box-shadow: none!important;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td:hover,
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
+  color: #ffffff !important;
+  background: #ff3366 !important;
+  box-shadow: none !important;
+}
 .cid-rq3LsUGJPX .navbar {
   padding: .5rem 0;
   background: #a5d2da;
@@ -2095,65 +2126,6 @@ body {
 }
 @media (max-width: 300px) {
   .cid-rq3J7eFjNq .testimonial-photo {
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-.cid-rqpkv6MU8G {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background-color: #ffffff;
-}
-.cid-rqpkv6MU8G .mbr-section-subtitle {
-  color: #767676;
-}
-.cid-rqpkv6MU8G .media-container-row {
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.cid-rqpkv6MU8G .mbr-text {
-  color: #767676;
-  text-align: left;
-}
-.cid-rqpkv6MU8G .mbr-author-desc {
-  display: block;
-  color: #767676;
-}
-.cid-rqpkv6MU8G .mbr-author-name {
-  color: #767676;
-}
-.cid-rqpkv6MU8G .mbr-testimonial .panel-item {
-  background-color: #ffffff;
-}
-.cid-rqpkv6MU8G .mbr-testimonial .card-block {
-  -webkit-flex-grow: 0;
-  flex-grow: 0;
-  padding: 2.4rem 2.4rem 0 2.4rem;
-}
-.cid-rqpkv6MU8G .mbr-testimonial .card-block .testimonial-photo {
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 1.6rem;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.cid-rqpkv6MU8G .mbr-testimonial .card-block .testimonial-photo img {
-  width: 100%;
-  min-width: 100%;
-  min-height: 100%;
-}
-.cid-rqpkv6MU8G .mbr-testimonial .card-footer {
-  padding-bottom: 2.4rem;
-  border-top: 0;
-  padding-top: 1rem;
-  word-wrap: break-word;
-  word-break: break-word;
-  background: none;
-}
-@media (max-width: 300px) {
-  .cid-rqpkv6MU8G .testimonial-photo {
     width: 100% !important;
     height: auto !important;
   }
