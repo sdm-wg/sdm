@@ -1,0 +1,1877 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "ja", "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://sdm.hongo.wide.ad.jp/sdmo", "http://schema.org", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema" ],
+    "title" : {
+      "ja" : "SDMオントロジー",
+      "en" : "SDM Ontology"
+    },
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "version" : "2.0.0-alpha",
+    "author" : [ "Takuro Sone", "Shin Kato", "Hiroshi Esaki", "Manabu Tsukada" ],
+    "description" : {
+      "ja" : "マルチメディア制作フローを管理するオントロジー",
+      "en" : "An ontology for the multi-media domain that models the workflow from production to consumption."
+    },
+    "other" : {
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
+        "language" : "undefined",
+        "value" : "http://sdm.hongo.wide.ad.jp/sdmo/SDMontology.owl",
+        "type" : "iri"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Hiroshi Esaki",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Shin Kato",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Takuro Sone",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Manabu Tsukada",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Chihei Kawamura",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Hiraku Okumura",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Yu Komohara",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Masahiro Ikeda",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Takashi Kasuya",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Ray Atarashi",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2020-07-01T10:00:00",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "undefined",
+        "value" : "Copyright 2020, Software Defined Media Consortium",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "sdmo",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "ja",
+        "value" : "Software Defined Mediaコンソーシアム",
+        "type" : "label"
+      }, {
+        "identifier" : "publisher",
+        "language" : "en",
+        "value" : "Software Defined Media Consortium",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "http://sdm.hongo.wide.ad.jp/sdmo",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "2.0.0-alpha",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "ja",
+        "value" : "SDMオントロジー",
+        "type" : "label"
+      }, {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "SDM Ontology",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "55",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "56",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "61",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "62",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "63",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "64",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "65",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "66",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "67",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "68",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "69",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "70",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "73",
+    "type" : "owl:Class"
+  }, {
+    "id" : "76",
+    "type" : "owl:Class"
+  }, {
+    "id" : "78",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "9",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "32",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "79",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "10",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "81",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "83",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "93",
+    "type" : "owl:Class"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "101",
+    "type" : "owl:Class"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "107",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "108",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "111",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "100",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "18",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "72",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "59",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "80",
+    "type" : "owl:Class"
+  }, {
+    "id" : "95",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "119",
+    "type" : "owl:Class"
+  }, {
+    "id" : "114",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "0",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CoordinateSystem",
+      "en" : "Coordinate system"
+    },
+    "attributes" : [ "external" ],
+    "id" : "11"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VideoRecorder",
+      "en" : "Video recorder"
+    },
+    "attributes" : [ "external" ],
+    "id" : "12",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "16",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Generator",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Generator",
+      "en" : "Generator"
+    },
+    "attributes" : [ "external" ],
+    "id" : "25",
+    "superClasses" : [ "24" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "26",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MediaEvent",
+      "en" : "Media event"
+    },
+    "attributes" : [ "external" ],
+    "id" : "2"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataPlayer",
+      "en" : "Data player"
+    },
+    "attributes" : [ "external" ],
+    "id" : "34",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Analyzer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Analyzer",
+      "en" : "Analyzer"
+    },
+    "attributes" : [ "external" ],
+    "id" : "35",
+    "superClasses" : [ "24" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Processor",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Processor",
+      "en" : "Processor"
+    },
+    "subClasses" : [ "36", "37", "25", "35" ],
+    "attributes" : [ "external" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Converter",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Converter",
+      "en" : "Converter"
+    },
+    "attributes" : [ "external" ],
+    "id" : "37",
+    "superClasses" : [ "24" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VideoPlayer",
+      "en" : "Video player"
+    },
+    "attributes" : [ "external" ],
+    "id" : "44",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VideoMedia",
+      "en" : "Video media"
+    },
+    "attributes" : [ "external" ],
+    "id" : "46",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "54",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "55",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "56",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositePlayer",
+      "en" : "Composite player"
+    },
+    "attributes" : [ "external" ],
+    "id" : "57",
+    "superClasses" : [ "21" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "24", "13", "21" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "61"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "24", "13", "21" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "62"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "13", "21", "41", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "63"
+  }, {
+    "instances" : 0,
+    "union" : [ "41", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "64"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "13", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "65"
+  }, {
+    "instances" : 0,
+    "union" : [ "33", "11", "13", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "66"
+  }, {
+    "instances" : 0,
+    "union" : [ "41", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "67"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "21", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "68"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "13", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "69"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "21", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "70"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AudioMedia",
+      "en" : "Audio media"
+    },
+    "attributes" : [ "external" ],
+    "id" : "73",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataRecorder",
+      "en" : "Data recorder"
+    },
+    "attributes" : [ "external" ],
+    "id" : "76",
+    "superClasses" : [ "13" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "13", "21", "41", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "78"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "13", "21", "41", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "9"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "13", "21", "41" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "32"
+  }, {
+    "instances" : 0,
+    "union" : [ "80", "57", "36", "3", "41" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "79"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "13", "21", "41", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "10"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "81",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "83",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Program",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Program",
+      "en" : "Program"
+    },
+    "attributes" : [ "external" ],
+    "id" : "28",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Environment",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Environment",
+      "en" : "Environment"
+    },
+    "attributes" : [ "external" ],
+    "id" : "93",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Context",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Context",
+      "en" : "Context"
+    },
+    "subClasses" : [ "95", "93", "28", "59", "15" ],
+    "comment" : {
+      "ja" : "コンテキストクラスの説明文",
+      "en" : "This is a description of the Context class."
+    },
+    "attributes" : [ "external" ],
+    "id" : "41"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/DataMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataMedia",
+      "en" : "Data media"
+    },
+    "attributes" : [ "external" ],
+    "id" : "101",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "106",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "107",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "108",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "111",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Recorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Recorder",
+      "en" : "Recorder"
+    },
+    "subClasses" : [ "80", "76", "12", "114" ],
+    "attributes" : [ "external" ],
+    "id" : "13"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "91",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "100",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "18",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Player",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Player",
+      "en" : "Player"
+    },
+    "subClasses" : [ "34", "119", "57", "44" ],
+    "attributes" : [ "external" ],
+    "id" : "21"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "7",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "72",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "110",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "113",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositeProcessor",
+      "en" : "Composite processor"
+    },
+    "attributes" : [ "external" ],
+    "id" : "36",
+    "superClasses" : [ "24" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Target",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Target",
+      "en" : "Target"
+    },
+    "attributes" : [ "external" ],
+    "id" : "59",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Media",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Media",
+      "en" : "Media"
+    },
+    "subClasses" : [ "46", "73", "3", "101" ],
+    "attributes" : [ "external" ],
+    "id" : "6"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SDMEvent",
+      "en" : "SDM event"
+    },
+    "attributes" : [ "external" ],
+    "id" : "15",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Geometry",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Geometry",
+      "en" : "Geometry"
+    },
+    "attributes" : [ "external" ],
+    "id" : "33"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositeRecorder",
+      "en" : "Composite recorder"
+    },
+    "attributes" : [ "external" ],
+    "id" : "80",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Contents",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Contents",
+      "en" : "Contents"
+    },
+    "attributes" : [ "external" ],
+    "id" : "95",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositeMedia",
+      "en" : "Composite media"
+    },
+    "attributes" : [ "external" ],
+    "id" : "3",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AudioPlayer",
+      "en" : "Audio player"
+    },
+    "attributes" : [ "external" ],
+    "id" : "119",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AudioRecorder",
+      "en" : "Audio recorder"
+    },
+    "attributes" : [ "external" ],
+    "id" : "114",
+    "superClasses" : [ "13" ]
+  } ],
+  "property" : [ {
+    "id" : "1",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "5",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "8",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "17",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "19",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "20",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "22",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "23",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "27",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "30",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "31",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "38",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "40",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "45",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "47",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "48",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "49",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "50",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "51",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "52",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "53",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "58",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "71",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "74",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "75",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "84",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "85",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "86",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "87",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "88",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "89",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "90",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "92",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "94",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "96",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "98",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "99",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "102",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "103",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "104",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "105",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "109",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "112",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "97",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "115",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "116",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "118",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "39",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "120",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "122",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "123",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "124",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "125",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "126",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "127",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "128",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "129",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "130",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "131",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "132",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "133",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "134",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "135",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "136",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "137",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "138",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "139",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "140",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "141",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "142",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "143",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/included_in",
+    "inverse" : "4",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "included_in",
+      "en" : "included in"
+    },
+    "domain" : "2",
+    "attributes" : [ "external", "object" ],
+    "id" : "1"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/media_start_at",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "media_start_at",
+      "en" : "media start at"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "5"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/belongs_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "belongs_to",
+      "en" : "belongs to"
+    },
+    "domain" : "9",
+    "attributes" : [ "external", "object" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://schema.org/contentLocation",
+    "baseIri" : "http://schema.org",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "contentLocation"
+    },
+    "domain" : "15",
+    "attributes" : [ "external", "datatype", "someValues" ],
+    "id" : "14"
+  }, {
+    "iri" : "http://schema.org/perfomer",
+    "baseIri" : "http://schema.org",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "perfomer"
+    },
+    "domain" : "15",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "17"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "13",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "19"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "13",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "20"
+  }, {
+    "iri" : "http://schema.org/perfomer",
+    "baseIri" : "http://schema.org",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "perfomer"
+    },
+    "domain" : "15",
+    "attributes" : [ "external", "datatype", "someValues" ],
+    "id" : "22"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "13",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/content",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "26",
+    "label" : {
+      "IRI-based" : "content",
+      "en" : "content"
+    },
+    "domain" : "28",
+    "attributes" : [ "external", "datatype", "someValues" ],
+    "id" : "27"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/content",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "content",
+      "en" : "content"
+    },
+    "domain" : "28",
+    "attributes" : [ "external", "datatype", "someValues" ],
+    "id" : "30"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/at",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "at",
+      "en" : "at"
+    },
+    "domain" : "32",
+    "attributes" : [ "external", "object" ],
+    "id" : "31"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "24",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "38"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/played_by",
+    "inverse" : "42",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "played_by",
+      "en" : "played by"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object" ],
+    "id" : "40"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "24",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "43"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "24",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "24",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "21",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "24",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "49"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "24",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "50"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "51"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "21",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "52"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "21",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/attends",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "attends",
+      "en" : "attends"
+    },
+    "domain" : "59",
+    "attributes" : [ "external", "object" ],
+    "id" : "58"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/records",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "records",
+      "en" : "records"
+    },
+    "domain" : "13",
+    "attributes" : [ "external", "object" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/local_z",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "72",
+    "label" : {
+      "IRI-based" : "local_z",
+      "en" : "local z"
+    },
+    "cardinality" : "1",
+    "domain" : "59",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "71"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/local_x",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "local_x",
+      "en" : "local x"
+    },
+    "cardinality" : "1",
+    "domain" : "59",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "74"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/local_y",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "55",
+    "label" : {
+      "IRI-based" : "local_y",
+      "en" : "local y"
+    },
+    "cardinality" : "1",
+    "domain" : "59",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "75"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/performs",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "performs",
+      "en" : "performs"
+    },
+    "domain" : "59",
+    "attributes" : [ "external", "object" ],
+    "id" : "77"
+  }, {
+    "iri" : "http://schema.org/contentLocation",
+    "baseIri" : "http://schema.org",
+    "range" : "81",
+    "label" : {
+      "IRI-based" : "contentLocation"
+    },
+    "domain" : "15",
+    "attributes" : [ "external", "datatype", "someValues" ],
+    "id" : "82"
+  }, {
+    "iri" : "http://schema.org/perfomer",
+    "baseIri" : "http://schema.org",
+    "range" : "83",
+    "label" : {
+      "IRI-based" : "perfomer"
+    },
+    "domain" : "15",
+    "attributes" : [ "external", "datatype", "someValues" ],
+    "id" : "84"
+  }, {
+    "range" : "41",
+    "domain" : "15",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "85"
+  }, {
+    "range" : "41",
+    "domain" : "59",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "86"
+  }, {
+    "range" : "13",
+    "domain" : "76",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "87"
+  }, {
+    "range" : "13",
+    "domain" : "80",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "88"
+  }, {
+    "range" : "41",
+    "domain" : "28",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "89"
+  }, {
+    "iri" : "http://schema.org/startDate",
+    "baseIri" : "http://schema.org",
+    "range" : "91",
+    "label" : {
+      "IRI-based" : "startDate"
+    },
+    "maxCardinality" : "1",
+    "domain" : "15",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "90"
+  }, {
+    "range" : "41",
+    "domain" : "93",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "92"
+  }, {
+    "range" : "41",
+    "domain" : "95",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "94"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referred_by",
+    "inverse" : "97",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "62",
+    "label" : {
+      "IRI-based" : "referred_by",
+      "en" : "referred by"
+    },
+    "domain" : "67",
+    "attributes" : [ "external", "object" ],
+    "id" : "96"
+  }, {
+    "range" : "24",
+    "domain" : "37",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "98"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/time",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "100",
+    "label" : {
+      "IRI-based" : "time",
+      "en" : "time"
+    },
+    "cardinality" : "1",
+    "domain" : "2",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "99"
+  }, {
+    "range" : "24",
+    "domain" : "36",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "102"
+  }, {
+    "range" : "24",
+    "domain" : "35",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "103"
+  }, {
+    "range" : "24",
+    "domain" : "25",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "104"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/recorded_by",
+    "inverse" : "60",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "recorded_by",
+      "en" : "recorded by"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object" ],
+    "id" : "105"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/start_at",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "110",
+    "label" : {
+      "IRI-based" : "start_at",
+      "en" : "start at"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "109"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/program_number",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "113",
+    "label" : {
+      "IRI-based" : "program_number",
+      "en" : "program number"
+    },
+    "cardinality" : "1",
+    "domain" : "28",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "112"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/refers",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "64",
+    "label" : {
+      "IRI-based" : "refers",
+      "en" : "refers"
+    },
+    "domain" : "61",
+    "attributes" : [ "external", "object" ],
+    "id" : "97"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/includes",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "includes",
+      "en" : "includes"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "object" ],
+    "id" : "4"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/plays",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "plays",
+      "en" : "plays"
+    },
+    "domain" : "21",
+    "attributes" : [ "external", "object" ],
+    "id" : "42"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/content",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "107",
+    "label" : {
+      "IRI-based" : "content",
+      "en" : "content"
+    },
+    "domain" : "28",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "115"
+  }, {
+    "iri" : "http://schema.org/name",
+    "baseIri" : "http://schema.org",
+    "range" : "106",
+    "label" : {
+      "IRI-based" : "name"
+    },
+    "cardinality" : "1",
+    "domain" : "63",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "116"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/end_at",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "end_at",
+      "en" : "end at"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "117"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "78",
+    "label" : {
+      "IRI-based" : "has",
+      "en" : "has"
+    },
+    "domain" : "79",
+    "attributes" : [ "external", "object" ],
+    "id" : "118"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "68",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "65",
+    "attributes" : [ "external", "object" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "69",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "70",
+    "attributes" : [ "external", "object" ],
+    "id" : "120"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referred_by",
+    "inverse" : "97",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "referred_by",
+      "en" : "referred by"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "121"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/recorded_by",
+    "inverse" : "60",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "recorded_by",
+      "en" : "recorded by"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "122"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referred_by",
+    "inverse" : "97",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "referred_by",
+      "en" : "referred by"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "123"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/played_by",
+    "inverse" : "42",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "played_by",
+      "en" : "played by"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "124"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "125"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/input_from",
+    "inverse" : "39",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "input_from",
+      "en" : "input from"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "126"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/output_to",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "output_to",
+      "en" : "output to"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "127"
+  }, {
+    "iri" : "http://schema.org/contentUrl",
+    "baseIri" : "http://schema.org",
+    "range" : "111",
+    "label" : {
+      "IRI-based" : "contentUrl"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "128"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referred_by",
+    "inverse" : "97",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "referred_by",
+      "en" : "referred by"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "129"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referred_by",
+    "inverse" : "97",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "referred_by",
+      "en" : "referred by"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "130"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "has",
+      "en" : "has"
+    },
+    "domain" : "41",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "131"
+  }, {
+    "iri" : "http://schema.org/contentLocation",
+    "baseIri" : "http://schema.org",
+    "range" : "108",
+    "label" : {
+      "IRI-based" : "contentLocation"
+    },
+    "domain" : "15",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "132"
+  }, {
+    "range" : "6",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "133"
+  }, {
+    "range" : "6",
+    "domain" : "73",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "134"
+  }, {
+    "range" : "6",
+    "domain" : "101",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "135"
+  }, {
+    "range" : "6",
+    "domain" : "46",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "136"
+  }, {
+    "range" : "21",
+    "domain" : "44",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "137"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/measured_by",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "measured_by",
+      "en" : "measured by"
+    },
+    "domain" : "66",
+    "attributes" : [ "external", "object" ],
+    "id" : "138"
+  }, {
+    "range" : "21",
+    "domain" : "57",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "139"
+  }, {
+    "range" : "13",
+    "domain" : "114",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "140"
+  }, {
+    "range" : "13",
+    "domain" : "12",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "141"
+  }, {
+    "range" : "21",
+    "domain" : "119",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "142"
+  }, {
+    "range" : "21",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "143"
+  } ]
+}
