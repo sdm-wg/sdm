@@ -1,0 +1,868 @@
+@prefix : <http://sdm.hongo.wide.ad.jp/sdmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://sdm.hongo.wide.ad.jp/sdmo> .
+
+<http://sdm.hongo.wide.ad.jp/sdmo> rdf:type owl:Ontology ;
+                                    owl:versionIRI <http://sdm.hongo.wide.ad.jp/sdmo/2.0.0> ;
+                                    <http://purl.org/dc/elements/1.1/contributor> "Chihei Kawamura"@en ,
+                                                                                  "Hiraku Okumura"@en ,
+                                                                                  "Masahiro Ikeda"@en ,
+                                                                                  "Ray Atarashi"@en ,
+                                                                                  "Takashi Kasuya"@en ,
+                                                                                  "Yu Komohara"@en ;
+                                    <http://purl.org/dc/elements/1.1/creator> "Hiroshi Esaki"@en ,
+                                                                              "Manabu Tsukada"@en ,
+                                                                              "Shin Kato"@en ,
+                                                                              "Takuro Sone"@en ;
+                                    <http://purl.org/dc/elements/1.1/description> "An ontology for the multi-media domain that models the workflow from production to consumption."@en ,
+                                                                                  "マルチメディア制作フローを管理するオントロジー"@ja ;
+                                    <http://purl.org/dc/elements/1.1/publisher> "Software Defined Media Consortium"@en ,
+                                                                                "Software Defined Mediaコンソーシアム"@ja ;
+                                    <http://purl.org/dc/elements/1.1/rights> "Copyright 2020, Software Defined Media Consortium" ;
+                                    <http://purl.org/dc/elements/1.1/title> "SDM Ontology"@en ,
+                                                                            "SDMオントロジー"@ja ;
+                                    <http://purl.org/dc/terms/created> "2020-07-17T18:00:00"^^xsd:dateTime ;
+                                    <http://purl.org/vocab/vann/preferredNamespacePrefix> "sdmo" ;
+                                    <http://purl.org/vocab/vann/preferredNamespaceUri> "http://sdm.hongo.wide.ad.jp/sdmo" ;
+                                    owl:priorVersion <http://sdm.hongo.wide.ad.jp/sdmo/SDMontology.owl> ;
+                                    owl:versionInfo "2.0.0-alpha" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/publisher
+<http://purl.org/dc/elements/1.1/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/at
+<http://sdm.hongo.wide.ad.jp/sdmo/at> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain [ rdf:type owl:Class ;
+                                                    owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                                  <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                  <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                  <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                )
+                                                  ] ;
+                                      rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/Geometry> ;
+                                      rdfs:comment "Geometryを参照する。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/attends
+<http://sdm.hongo.wide.ad.jp/sdmo/attends> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Target> ;
+                                           rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> ;
+                                           rdfs:comment "TargetがSDMEventに参加することを表す。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/belongsTo
+<http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain [ rdf:type owl:Class ;
+                                                           owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                       )
+                                                         ] ;
+                                             rdfs:range [ rdf:type owl:Class ;
+                                                          owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                      )
+                                                        ] ;
+                                             rdfs:comment "インスタンスに属する。原則として同系統クラスを指し示す。hasと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/has
+<http://sdm.hongo.wide.ad.jp/sdmo/has> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain [ rdf:type owl:Class ;
+                                                     owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia>
+                                                                   <http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer>
+                                                                   <http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor>
+                                                                   <http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder>
+                                                                   <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                                 )
+                                                   ] ;
+                                       rdfs:range [ rdf:type owl:Class ;
+                                                    owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                                  <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                  <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                  <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                  <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                )
+                                                  ] ;
+                                       rdfs:comment "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/includedIn
+<http://sdm.hongo.wide.ad.jp/sdmo/includedIn> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://sdm.hongo.wide.ad.jp/sdmo/includes> ;
+                                              rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> ;
+                                              rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> ;
+                                              rdfs:comment "MediaEventがCompositeMediaに包含されることを表す。includesと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/includes
+<http://sdm.hongo.wide.ad.jp/sdmo/includes> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> ;
+                                            rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> ;
+                                            rdfs:comment "CompositeMediaがMediaEventを包含することを表す。includedInと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/inputFrom
+<http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                             rdfs:domain [ rdf:type owl:Class ;
+                                                           owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                       )
+                                                         ] ;
+                                             rdfs:range [ rdf:type owl:Class ;
+                                                          owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                      )
+                                                        ] ;
+                                             rdfs:comment "メディアの入力元。outputToと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/measuredBy
+<http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain [ rdf:type owl:Class ;
+                                                            owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem>
+                                                                          <http://sdm.hongo.wide.ad.jp/sdmo/Geometry>
+                                                                          <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                          <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                        )
+                                                          ] ;
+                                              rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> ;
+                                              rdfs:comment "CoordinateSystemを参照する。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/outputTo
+<http://sdm.hongo.wide.ad.jp/sdmo/outputTo> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain [ rdf:type owl:Class ;
+                                                          owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                        <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                      )
+                                                        ] ;
+                                            rdfs:range [ rdf:type owl:Class ;
+                                                         owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                       <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                       <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                     )
+                                                       ] ;
+                                            rdfs:comment "メディアの出力先。inputFromと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/performs
+<http://sdm.hongo.wide.ad.jp/sdmo/performs> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Target> ;
+                                            rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/Program> ;
+                                            rdfs:comment "TargetがProgramを演じる、あるいは、演奏することを表す。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/playedBy
+<http://sdm.hongo.wide.ad.jp/sdmo/playedBy> rdf:type owl:ObjectProperty ;
+                                            owl:inverseOf <http://sdm.hongo.wide.ad.jp/sdmo/plays> ;
+                                            rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Context> ;
+                                            rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/Player> ;
+                                            rdfs:comment "ContextがPlayerによって再生されることを表す。playsと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/plays
+<http://sdm.hongo.wide.ad.jp/sdmo/plays> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Player> ;
+                                         rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/Context> ;
+                                         rdfs:comment "PlayerがContextを再生することを表す。playedByと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/recordedBy
+<http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://sdm.hongo.wide.ad.jp/sdmo/records> ;
+                                              rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Context> ;
+                                              rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> ;
+                                              rdfs:comment "ContextがRecorderによって収録されることを表す。recordsと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/records
+<http://sdm.hongo.wide.ad.jp/sdmo/records> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> ;
+                                           rdfs:range <http://sdm.hongo.wide.ad.jp/sdmo/Context> ;
+                                           rdfs:comment "RecorderがContextを収録することを表す。recordedByと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/referredBy
+<http://sdm.hongo.wide.ad.jp/sdmo/referredBy> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://sdm.hongo.wide.ad.jp/sdmo/refers> ;
+                                              rdfs:domain [ rdf:type owl:Class ;
+                                                            owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                                          <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                        )
+                                                          ] ;
+                                              rdfs:range [ rdf:type owl:Class ;
+                                                           owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                         <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                       )
+                                                         ] ;
+                                              rdfs:comment "参照されることを表す。refersと逆の意味。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/refers
+<http://sdm.hongo.wide.ad.jp/sdmo/refers> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain [ rdf:type owl:Class ;
+                                                        owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent>
+                                                                      <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                      <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                      <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                    )
+                                                      ] ;
+                                          rdfs:range [ rdf:type owl:Class ;
+                                                       owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                                     <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                   )
+                                                     ] ;
+                                          rdfs:comment "参照することを表す。referredByと逆の意味。"@ja .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/contentLocation
+<http://schema.org/contentLocation> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> ;
+                                    rdfs:comment "The location depicted or described in the content. For example, the location in a photograph or painting."@en ;
+                                    rdfs:seeAlso "http://schema.org/contentLocation"^^xsd:anyURI .
+
+
+###  http://schema.org/contentUrl
+<http://schema.org/contentUrl> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Media> ;
+                               rdfs:comment "Actual bytes of the media object, for example the image file or video file."@en ;
+                               rdfs:seeAlso "http://schema.org/contentUrl"^^xsd:anyURI .
+
+
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                     <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                     <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                     <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                     <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                   )
+                                     ] ;
+                         rdfs:comment "The name of the item."@en ;
+                         rdfs:seeAlso "http://schema.org/name"^^xsd:anyURI .
+
+
+###  http://schema.org/performer
+<http://schema.org/performer> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> ;
+                              rdfs:comment "A performer at the event—for example, a presenter, musician, musical group or actor."@en ;
+                              rdfs:seeAlso "http://schema.org/performer"^^xsd:anyURI .
+
+
+###  http://schema.org/startDate
+<http://schema.org/startDate> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> ;
+                              rdfs:comment "The start date and time of the item (in ISO 8601 date format)."@en ;
+                              rdfs:seeAlso "http://schema.org/startDate"^^xsd:anyURI .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/content
+<http://sdm.hongo.wide.ad.jp/sdmo/content> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Program> ;
+                                           rdfs:comment "プログラム内のコンテンツの名称、あるいは、識別できるもの。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/endAt
+<http://sdm.hongo.wide.ad.jp/sdmo/endAt> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Media> ;
+                                         rdfs:range xsd:dateTimeStamp ;
+                                         rdfs:comment "メディアの再生区間の終了時間。メディアがもつ相対時間軸の終了時刻。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/eventTime
+<http://sdm.hongo.wide.ad.jp/sdmo/eventTime> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> ;
+                                             rdfs:range xsd:dateTimeStamp ;
+                                             rdfs:comment "CompositeMediaは相対時間軸上にMediaEventを配置してメディアの包含関係を表す。eventTimeは相対時間軸上のMediaEventを再生開始する位置を定める値である。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/localX
+<http://sdm.hongo.wide.ad.jp/sdmo/localX> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Target> ;
+                                          rdfs:range xsd:decimal ;
+                                          rdfs:comment "ローカル空間座標系におけるTargetのx座標。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/localY
+<http://sdm.hongo.wide.ad.jp/sdmo/localY> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Target> ;
+                                          rdfs:range xsd:decimal ;
+                                          rdfs:comment "ローカル空間座標系におけるTargetのy座標。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/localZ
+<http://sdm.hongo.wide.ad.jp/sdmo/localZ> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Target> ;
+                                          rdfs:range xsd:decimal ;
+                                          rdfs:comment "ローカル空間座標系におけるTargetのz座標。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt
+<http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt> rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Media> ;
+                                                rdfs:range xsd:dateTimeStamp ;
+                                                rdfs:comment "メディアファイルの記録開始時刻。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/programNumber
+<http://sdm.hongo.wide.ad.jp/sdmo/programNumber> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Program> ;
+                                                 rdfs:range xsd:integer ;
+                                                 rdfs:comment "プログラムの題目数。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/startAt
+<http://sdm.hongo.wide.ad.jp/sdmo/startAt> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain <http://sdm.hongo.wide.ad.jp/sdmo/Media> ;
+                                           rdfs:range xsd:dateTimeStamp ;
+                                           rdfs:comment "メディアの再生区間の開始時間。メディアがもつ相対時間軸の開始時刻。"@ja .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Analyzer
+<http://sdm.hongo.wide.ad.jp/sdmo/Analyzer> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Processor> ;
+                                            rdfs:comment "メディアの分析に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Media> ;
+                                              rdfs:comment "音声メディアに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Player> ;
+                                               rdfs:comment "音声メディアの再生システムに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> ;
+                                                 rdfs:comment "音声収録機材に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Media> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/has> ;
+                                                                    owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                                  ] ;
+                                                  rdfs:comment "メディアファイル間の包含関係に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Player> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/has> ;
+                                                                     owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                                   ] ;
+                                                   rdfs:comment "メディアの再生システム間の包含関係に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Processor> ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/has> ;
+                                                                        owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                                      ] ;
+                                                      rdfs:comment "メディアの編集作業間の包含関係に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/has> ;
+                                                                       owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                                     ] ;
+                                                     rdfs:comment "収録機材間の包含関係に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Contents
+<http://sdm.hongo.wide.ad.jp/sdmo/Contents> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Context> ;
+                                            rdfs:comment "メディアやパッケージに関する情報。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Context
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/has> ;
+                                                             owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/playedBy> ;
+                                                             owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> ;
+                                                             owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> ;
+                                                             owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> ;
+                                                             owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> ;
+                                                             owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/at> ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Geometry>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://schema.org/name> ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onDataRange xsd:string
+                                                           ] ;
+                                           rdfs:comment "収録するイベントに関わる総合的な情報。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Converter
+<http://sdm.hongo.wide.ad.jp/sdmo/Converter> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Processor> ;
+                                             rdfs:comment "メディアの変換に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem
+<http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> rdf:type owl:Class ;
+                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                      owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem>
+                                                                    ] ;
+                                                    rdfs:comment "時空間座標系の定義に関するクラス。緯度経度の地理座標系やイベント会場内に定義する空間座標系、収録したメディアファイルの時間軸などを記述する。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/DataMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/DataMedia> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Media> ;
+                                             rdfs:comment "データメディアに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Player> ;
+                                              rdfs:comment "データメディアの再生システムに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> ;
+                                                rdfs:comment "データ記録機材に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Environment
+<http://sdm.hongo.wide.ad.jp/sdmo/Environment> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Context> ;
+                                               rdfs:comment "収録環境のクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Generator
+<http://sdm.hongo.wide.ad.jp/sdmo/Generator> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Processor> ;
+                                             rdfs:comment "メディアジェネレータに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Geometry
+<http://sdm.hongo.wide.ad.jp/sdmo/Geometry> rdf:type owl:Class ;
+                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem>
+                                                            ] ;
+                                            rdfs:comment "CoordinateSystemで定義された座標系における座標を記述する。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Media
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> rdf:type owl:Class ;
+                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                           owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                           owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                           owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                           owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> ;
+                                                           owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://schema.org/contentUrl> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:anyURI
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://schema.org/name> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:string
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/endAt> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:dateTimeStamp
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:dateTimeStamp
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/startAt> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:dateTimeStamp
+                                                         ] ;
+                                         rdfs:comment "メディアファイルに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent
+<http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> rdf:type owl:Class ;
+                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/refers> ;
+                                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                              ] ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/eventTime> ;
+                                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                owl:onDataRange xsd:dateTimeStamp
+                                                              ] ;
+                                              rdfs:comment "メディアとMediaEventが属するCompositeMediaの相対時間軸上の時刻情報の対応関係を記述するクラス。MediaEventの相対時刻情報をもとにCompositeMediaの時間軸上にメディアを配置する。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Player
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> rdf:type owl:Class ;
+                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                            owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                            owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                            owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/at> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Geometry>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/plays> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/refers> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://schema.org/name> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onDataRange xsd:string
+                                                          ] ;
+                                          rdfs:comment "メディアの再生システムに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Processor
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> rdf:type owl:Class ;
+                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                               owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                               owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> ;
+                                                               owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                               owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                               owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                               owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/at> ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Geometry>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/refers> ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://schema.org/name> ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onDataRange xsd:string
+                                                             ] ;
+                                             rdfs:comment "メディアの編集・加工に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Program
+<http://sdm.hongo.wide.ad.jp/sdmo/Program> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Context> ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/content> ;
+                                                             owl:someValuesFrom xsd:anyURI
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/content> ;
+                                                             owl:someValuesFrom xsd:string
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/programNumber> ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onDataRange xsd:integer
+                                                           ] ;
+                                           rdfs:comment "イベントプログラムに関する情報。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Recorder
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> rdf:type owl:Class ;
+                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                              owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Media>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                              owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Player>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> ;
+                                                              owl:someValuesFrom <http://sdm.hongo.wide.ad.jp/sdmo/Processor>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/at> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Geometry>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Recorder>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/records> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/refers> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass <http://sdm.hongo.wide.ad.jp/sdmo/Context>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://schema.org/name> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onDataRange xsd:string
+                                                            ] ;
+                                            rdfs:comment "収録機材に関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Context> ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://schema.org/contentLocation> ;
+                                                              owl:someValuesFrom xsd:anyURI
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://schema.org/contentLocation> ;
+                                                              owl:someValuesFrom xsd:string
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://schema.org/performer> ;
+                                                              owl:someValuesFrom xsd:anyURI
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://schema.org/performer> ;
+                                                              owl:someValuesFrom xsd:string
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://schema.org/startDate> ;
+                                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onDataRange xsd:dateTimeStamp
+                                                            ] ;
+                                            rdfs:comment "SDMで扱うイベント情報。"@ja ;
+                                            rdfs:label "SDM event" .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/Target
+<http://sdm.hongo.wide.ad.jp/sdmo/Target> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Context> ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/localX> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onDataRange xsd:decimal
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/localY> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onDataRange xsd:decimal
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://sdm.hongo.wide.ad.jp/sdmo/localZ> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onDataRange xsd:decimal
+                                                          ] ;
+                                          rdfs:comment "収録対象クラス。特定の出演者、オーケストラのパート、楽器などを記述する。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Media> ;
+                                              rdfs:comment "映像メディアに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Player> ;
+                                               rdfs:comment "映像メディアの再生システムに関するクラス。"@ja .
+
+
+###  http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> ;
+                                                 rdfs:comment "映像収録機材に関するクラス。"@ja .
+
+
+###  Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/

@@ -1,0 +1,4676 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="resources/primer.css" media="screen" />
+    <link rel="stylesheet" href="resources/rec.css" media="screen" />
+    <link rel="stylesheet" href="resources/extra.css" media="screen" />
+    <link rel="stylesheet" href="resources/owl.css" media="screen" />
+    <title>SDMオントロジー</title>
+
+    <!-- SCHEMA.ORG METADATA -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "TechArticle",
+        "url": "http://sdm.hongo.wide.ad.jp/sdmo",
+        "image": "http://vowl.visualdataweb.org/webvowl/#iri=http://sdm.hongo.wide.ad.jp/sdmo",
+        "name": "SDMオントロジー",
+        "headline": "マルチメディア制作フローを管理するオントロジー",
+        "datePublished": "2020-07-17T18:00:00",
+        "version": "2.0.0-alpha",
+        "author": [
+          { "@type": "Person", "name": "Hiroshi Esaki" },
+          { "@type": "Person", "name": "Manabu Tsukada" },
+          { "@type": "Person", "name": "Shin Kato" },
+          { "@type": "Person", "name": "Takuro Sone" }
+        ],
+        "contributor": [
+          { "@type": "Person", "name": "Chihei Kawamura" },
+          { "@type": "Person", "name": "Hiraku Okumura" },
+          { "@type": "Person", "name": "Masahiro Ikeda" },
+          { "@type": "Person", "name": "Ray Atarashi" },
+          { "@type": "Person", "name": "Takashi Kasuya" },
+          { "@type": "Person", "name": "Yu Komohara" }
+        ]
+      }
+    </script>
+
+    <script src="resources/jquery.js"></script>
+    <script src="resources/marked.min.js"></script>
+    <script>
+      function loadHash() {
+        jQuery(".markdown").each(function (el) {
+          jQuery(this)
+            .after(marked(jQuery(this).text()))
+            .remove();
+        });
+        var hash = location.hash;
+        if ($(hash).offset() != null) {
+          $("html, body").animate({ scrollTop: $(hash).offset().top }, 0);
+        }
+        loadTOC();
+      }
+      function loadTOC() {
+        //process toc dynamically
+        var t = "<h2>Table of contents</h2><ul>";
+        i = 1;
+        j = 0;
+        jQuery(".list").each(function () {
+          if (jQuery(this).is("h2")) {
+            if (j > 0) {
+              t += "</ul>";
+              j = 0;
+            }
+            t +=
+              "<li>" +
+              i +
+              ". <a href=#" +
+              jQuery(this).attr("id") +
+              ">" +
+              jQuery(this).ignore("span").text() +
+              "</a></li>";
+            i++;
+          }
+          if (jQuery(this).is("h3")) {
+            if (j == 0) {
+              t += "<ul>";
+            }
+            j++;
+            t +=
+              "<li>" +
+              (i - 1) +
+              "." +
+              j +
+              ". " +
+              "<a href=#" +
+              jQuery(this).attr("id") +
+              ">" +
+              jQuery(this).ignore("span").text() +
+              "</a></li>";
+          }
+        });
+        t += "</ul>";
+        $("#toc").html(t);
+      }
+      $.fn.ignore = function (sel) {
+        return this.clone()
+          .find(sel || ">*")
+          .remove()
+          .end();
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="head">
+        <div style="float: right">
+          language <a href="index-ja.html"><b>ja</b></a>
+          <a href="index.html"><b>en</b></a>
+        </div>
+        <h1>SDMオントロジー</h1>
+        <h2>Release 2020-07-17T18:00:00</h2>
+
+        <dl>
+          <dt>This version:</dt>
+          <dd>
+            <a href="http://sdm.hongo.wide.ad.jp/sdmo/2.0.0-alpha1.ttl"
+              >http://sdm.hongo.wide.ad.jp/sdmo/2.0.0-alpha1.ttl</a
+            >
+          </dd>
+          <dt>Latest version:</dt>
+          <dd>
+            <a href="http://sdm.hongo.wide.ad.jp/sdmo"
+              >http://sdm.hongo.wide.ad.jp/sdmo</a
+            >
+          </dd>
+          <dt>Previous version:</dt>
+          <dd>
+            <a href="http://sdm.hongo.wide.ad.jp/sdmo/SDMontology.owl"
+              >http://sdm.hongo.wide.ad.jp/sdmo/SDMontology.owl</a
+            >
+          </dd>
+          <dt>Revision:</dt>
+          <dd>2.0.0-alpha1</dd>
+          <dt>Authors:</dt>
+          <dd>Hiroshi Esaki</dd>
+          <dd>Manabu Tsukada</dd>
+          <dd>Shin Kato</dd>
+          <dd>Takuro Sone</dd>
+
+          <dt>Contributors:</dt>
+          <dd>Chihei Kawamura</dd>
+          <dd>Hiraku Okumura</dd>
+          <dd>Masahiro Ikeda</dd>
+          <dd>Ray Atarashi</dd>
+          <dd>Takashi Kasuya</dd>
+          <dd>Yu Komohara</dd>
+
+          <dt>Publisher:</dt>
+          <dd>Software Defined Mediaコンソーシアム</dd>
+          <dt>Download serialization:</dt>
+          <dd>
+            <span
+              ><a href="ontology.json" target="_blank"
+                ><img
+                  src="https://img.shields.io/badge/Format-JSON_LD-blue.svg"
+                  alt="JSON-LD"
+              /></a> </span
+            ><span
+              ><a href="ontology.xml" target="_blank"
+                ><img
+                  src="https://img.shields.io/badge/Format-RDF/XML-blue.svg"
+                  alt="RDF/XML"
+              /></a> </span
+            ><span
+              ><a href="ontology.nt" target="_blank"
+                ><img
+                  src="https://img.shields.io/badge/Format-N_Triples-blue.svg"
+                  alt="N-Triples"
+              /></a> </span
+            ><span
+              ><a href="ontology.ttl" target="_blank"
+                ><img
+                  src="https://img.shields.io/badge/Format-TTL-blue.svg"
+                  alt="TTL"
+              /></a>
+            </span>
+          </dd>
+          <dt>License:</dt>
+          <dd>
+            <a href="http://insertlicenseURIhere.org" target="_blank"
+              ><img
+                src="https://img.shields.io/badge/License-Copyright%202020,%20Software%20Defined%20Media%20Consortium-blue.svg"
+                alt="http://insertlicenseURIhere.org"
+            /></a>
+          </dd>
+          <dt>Visualization:</dt>
+          <dd>
+            <a href="webvowl/index.html#" target="_blank"
+              ><img
+                src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg"
+                alt="Visualize with WebVowl"
+            /></a>
+          </dd>
+          <dt>Evaluation:</dt>
+          <dd>
+            <a href="OOPSevaluation/oopsEval.html#" target="_blank"
+              ><img
+                src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg"
+                alt="Evaluate with OOPS!"
+            /></a>
+          </dd>
+          <dt>Cite as:</dt>
+          <dd>
+            加藤 慎, 曽根 卓朗, 塚田 学, 江崎 浩:
+            再起的記述を可能とする映像音声メディア・オントロジー.
+            マルチメディア，分散，協調とモバイル(DICOMO2020)シンポジウム,
+            pp.1373-1380, 2020.
+          </dd>
+        </dl>
+
+        <hr />
+      </div>
+      <div class="status">
+        <div>
+          <span>Ontology Specification Draft</span>
+        </div>
+      </div>
+      <div id="abstract">
+        <h2>Abstract</h2>
+        <span class="markdown">
+          マルチメディア制作フローを管理するオントロジー</span
+        >
+      </div>
+      <div id="toc"></div>
+
+      <!--INTRODUCTION SECTION-->
+      <div id="introduction">
+        <h2 id="intro" class="list">
+          Introduction
+          <span class="backlink"> back to <a href="#toc">ToC</a></span>
+        </h2>
+        <!-- <span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span> -->
+        <div id="namespacedeclarations">
+          <h3 id="ns" class="list">Namespace declarations</h3>
+          <div id="ns" align="center">
+            <table>
+              <caption>
+                <a href="#ns"> Table 1</a
+                >: Namespaces used in the document
+              </caption>
+              <tbody>
+                <tr>
+                  <td><b>sdmo</b></td>
+                  <td>&lt;http://sdm.hongo.wide.ad.jp/sdmo&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>owl</b></td>
+                  <td>&lt;http://www.w3.org/2002/07/owl&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>rdf</b></td>
+                  <td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>terms</b></td>
+                  <td>&lt;http://purl.org/dc/terms&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>sdm-hongo-wide-ad-jp</b></td>
+                  <td>&lt;http://sdm.hongo.wide.ad.jp&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>xsd</b></td>
+                  <td>&lt;http://www.w3.org/2001/XMLSchema&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>schema-org</b></td>
+                  <td>&lt;http://schema.org&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>rdfs</b></td>
+                  <td>&lt;http://www.w3.org/2000/01/rdf-schema&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>vann</b></td>
+                  <td>&lt;http://purl.org/vocab/vann&gt;</td>
+                </tr>
+                <tr>
+                  <td><b>dc</b></td>
+                  <td>&lt;http://purl.org/dc/elements/1.1&gt;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!--OVERVIEW SECTION-->
+      <div id="overview">
+        <h2 id="overv" class="list">
+          SDMオントロジー: Overview
+          <span class="backlink"> back to <a href="#toc">ToC</a></span>
+        </h2>
+        <span class="markdown">
+          This ontology has the following classes and properties.</span
+        >
+        <h4>Classes</h4>
+        <ul class="hlist">
+          <li>
+            <a
+              href="#/Analyzer"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Analyzer"
+            >
+              <span>analyzer</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/AudioMedia"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia"
+            >
+              <span>audio media</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/AudioPlayer"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer"
+            >
+              <span>audio player</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/AudioRecorder"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder"
+            >
+              <span>audio recorder</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/CompositeMedia"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia"
+            >
+              <span>composite media</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/CompositePlayer"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer"
+            >
+              <span>composite player</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/CompositeProcessor"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor"
+            >
+              <span>composite processor</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/CompositeRecorder"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder"
+            >
+              <span>composite recorder</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Contents"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Contents"
+            >
+              <span>contents</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Context"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+            >
+              <span>context</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Converter"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Converter"
+            >
+              <span>converter</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/CoordinateSystem"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem"
+            >
+              <span>coordinate system</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/DataMedia"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/DataMedia"
+            >
+              <span>data media</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/DataPlayer"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer"
+            >
+              <span>data player</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/DataRecorder"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder"
+            >
+              <span>data recorder</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Environment"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Environment"
+            >
+              <span>environment</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Generator"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Generator"
+            >
+              <span>generator</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Geometry"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Geometry"
+            >
+              <span>geometry</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/Media" title="http://sdm.hongo.wide.ad.jp/sdmo/Media">
+              <span>media</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/MediaEvent"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent"
+            >
+              <span>media event</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/Player" title="http://sdm.hongo.wide.ad.jp/sdmo/Player">
+              <span>player</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Processor"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+            >
+              <span>processor</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Program"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Program"
+            >
+              <span>program</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/Recorder"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+            >
+              <span>recorder</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/SDMEvent"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent"
+              >SDM event</a
+            >
+          </li>
+          <li>
+            <a href="#/Target" title="http://sdm.hongo.wide.ad.jp/sdmo/Target">
+              <span>target</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/VideoMedia"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia"
+            >
+              <span>video media</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/VideoPlayer"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer"
+            >
+              <span>video player</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/VideoRecorder"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder"
+            >
+              <span>video recorder</span>
+            </a>
+          </li>
+        </ul>
+        <h4>Object Properties</h4>
+        <ul class="hlist">
+          <li>
+            <a href="#/at" title="http://sdm.hongo.wide.ad.jp/sdmo/at">
+              <span>at</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/attends"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/attends"
+            >
+              <span>attends</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/belongsTo"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/belongsTo"
+            >
+              <span>belongs to</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/has" title="http://sdm.hongo.wide.ad.jp/sdmo/has">
+              <span>has</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/includedIn"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/includedIn"
+            >
+              <span>included in</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/includes"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/includes"
+            >
+              <span>includes</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/inputFrom"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/inputFrom"
+            >
+              <span>input from</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/measuredBy"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/measuredBy"
+            >
+              <span>measured by</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/outputTo"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/outputTo"
+            >
+              <span>output to</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/performs"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/performs"
+            >
+              <span>performs</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/playedBy"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/playedBy"
+            >
+              <span>played by</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/plays" title="http://sdm.hongo.wide.ad.jp/sdmo/plays">
+              <span>plays</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/recordedBy"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/recordedBy"
+            >
+              <span>recorded by</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/records"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/records"
+            >
+              <span>records</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/referredBy"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/referredBy"
+            >
+              <span>referred by</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/refers" title="http://sdm.hongo.wide.ad.jp/sdmo/refers">
+              <span>refers</span>
+            </a>
+          </li>
+        </ul>
+        <h4>Data Properties</h4>
+        <ul class="hlist">
+          <li>
+            <a
+              href="#/content"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/content"
+            >
+              <span>content</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#http://schema.org/contentLocation"
+              title="http://schema.org/contentLocation"
+            >
+              <span>content location</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#http://schema.org/contentUrl"
+              title="http://schema.org/contentUrl"
+            >
+              <span>content url</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/endAt" title="http://sdm.hongo.wide.ad.jp/sdmo/endAt">
+              <span>end at</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/eventTime"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/eventTime"
+            >
+              <span>event time</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/localX" title="http://sdm.hongo.wide.ad.jp/sdmo/localX">
+              <span>local x</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/localY" title="http://sdm.hongo.wide.ad.jp/sdmo/localY">
+              <span>local y</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/localZ" title="http://sdm.hongo.wide.ad.jp/sdmo/localZ">
+              <span>local z</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/mediaStartAt"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt"
+            >
+              <span>media start at</span>
+            </a>
+          </li>
+          <li>
+            <a href="#http://schema.org/name" title="http://schema.org/name">
+              <span>name</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#http://schema.org/performer"
+              title="http://schema.org/performer"
+            >
+              <span>performer</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/programNumber"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/programNumber"
+            >
+              <span>program number</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/startAt"
+              title="http://sdm.hongo.wide.ad.jp/sdmo/startAt"
+            >
+              <span>start at</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#http://schema.org/startDate"
+              title="http://schema.org/startDate"
+            >
+              <span>start date</span>
+            </a>
+          </li>
+        </ul>
+        <iframe
+          align="center"
+          width="100%"
+          height="500px"
+          src="webvowl/index.html"
+        ></iframe>
+      </div>
+
+      <!--CROSSREF SECTION-->
+      <div id="crossref">
+        <h2 id="crossreference" class="list">
+          Cross reference for SDMオントロジー classes, properties and
+          dataproperties
+          <span class="backlink"> back to <a href="#toc">ToC</a></span>
+        </h2>
+        This section provides details for each class and property defined by
+        SDMオントロジー.
+        <div id="classes">
+          <h3 id="classes-headline" class="list">Classes</h3>
+          <ul class="hlist">
+            <li>
+              <a
+                href="#/Analyzer"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Analyzer"
+              >
+                <span>analyzer</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/AudioMedia"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia"
+              >
+                <span>audio media</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/AudioPlayer"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer"
+              >
+                <span>audio player</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/AudioRecorder"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder"
+              >
+                <span>audio recorder</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/CompositeMedia"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia"
+              >
+                <span>composite media</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/CompositePlayer"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer"
+              >
+                <span>composite player</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/CompositeProcessor"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor"
+              >
+                <span>composite processor</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/CompositeRecorder"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder"
+              >
+                <span>composite recorder</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Contents"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Contents"
+              >
+                <span>contents</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Context"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+              >
+                <span>context</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Converter"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Converter"
+              >
+                <span>converter</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/CoordinateSystem"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem"
+              >
+                <span>coordinate system</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/DataMedia"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/DataMedia"
+              >
+                <span>data media</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/DataPlayer"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer"
+              >
+                <span>data player</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/DataRecorder"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder"
+              >
+                <span>data recorder</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Environment"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Environment"
+              >
+                <span>environment</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Generator"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Generator"
+              >
+                <span>generator</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Geometry"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Geometry"
+              >
+                <span>geometry</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/Media" title="http://sdm.hongo.wide.ad.jp/sdmo/Media">
+                <span>media</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/MediaEvent"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent"
+              >
+                <span>media event</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Player"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+              >
+                <span>player</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Processor"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+              >
+                <span>processor</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Program"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Program"
+              >
+                <span>program</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/Recorder"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+              >
+                <span>recorder</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/SDMEvent"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent"
+                >SDM event</a
+              >
+            </li>
+            <li>
+              <a
+                href="#/Target"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/Target"
+              >
+                <span>target</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/VideoMedia"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia"
+              >
+                <span>video media</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/VideoPlayer"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer"
+              >
+                <span>video player</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/VideoRecorder"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder"
+              >
+                <span>video recorder</span>
+              </a>
+            </li>
+          </ul>
+          <div class="entity" id="/Analyzer">
+            <h3>
+              analyzer<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Analyzer
+            </p>
+            <div class="comment">
+              <span class="markdown">メディアの分析に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Processor"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                  >processor</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/AudioMedia">
+            <h3>
+              audio media<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia
+            </p>
+            <div class="comment">
+              <span class="markdown">音声メディアに関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a href="#/Media" title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                  >media</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/AudioPlayer">
+            <h3>
+              audio player<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >音声メディアの再生システムに関するクラス。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Player"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                  >player</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/AudioRecorder">
+            <h3>
+              audio recorder<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder
+            </p>
+            <div class="comment">
+              <span class="markdown">音声収録機材に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Recorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                  >recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/CompositeMedia">
+            <h3>
+              composite media<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアファイル間の包含関係に関するクラス。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a href="#/Media" title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                  >media</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#/includes"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/includes"
+                  >includes</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+              <dt>is in range of</dt>
+              <dd>
+                <a
+                  href="#/includedIn"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/includedIn"
+                  >included in</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/CompositePlayer">
+            <h3>
+              composite player<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアの再生システム間の包含関係に関するクラス。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Player"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                  >player</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/CompositeProcessor">
+            <h3>
+              composite processor<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアの編集作業間の包含関係に関するクラス。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Processor"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                  >processor</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/CompositeRecorder">
+            <h3>
+              composite recorder<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder
+            </p>
+            <div class="comment">
+              <span class="markdown">収録機材間の包含関係に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Recorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                  >recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Contents">
+            <h3>
+              contents<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Contents
+            </p>
+            <div class="comment">
+              <span class="markdown">メディアやパッケージに関する情報。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Context"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                  >context</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Context">
+            <h3>
+              context<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Context
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >収録するイベントに関わる総合的な情報。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>has sub-classes</dt>
+              <dd>
+                <a
+                  href="#/SDMEvent"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent"
+                  >SDM event</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/Contents"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Contents"
+                  >contents</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/Environment"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Environment"
+                  >environment</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/Program"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Program"
+                  >program</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/Target"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Target"
+                  >target</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#/playedBy"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/playedBy"
+                  >played by</a
+                >
+                <sup class="type-op" title="object property">op</sup>,
+                <a
+                  href="#/recordedBy"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/recordedBy"
+                  >recorded by</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+              <dt>is in range of</dt>
+              <dd>
+                <a href="#/plays" title="http://sdm.hongo.wide.ad.jp/sdmo/plays"
+                  >plays</a
+                >
+                <sup class="type-op" title="object property">op</sup>,
+                <a
+                  href="#/records"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/records"
+                  >records</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Converter">
+            <h3>
+              converter<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Converter
+            </p>
+            <div class="comment">
+              <span class="markdown">メディアの変換に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Processor"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                  >processor</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/CoordinateSystem">
+            <h3>
+              coordinate system<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >時空間座標系の定義に関するクラス。緯度経度の地理座標系やイベント会場内に定義する空間座標系、収録したメディアファイルの時間軸などを記述する。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>is in range of</dt>
+              <dd>
+                <a
+                  href="#/measuredBy"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/measuredBy"
+                  >measured by</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/DataMedia">
+            <h3>
+              data media<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/DataMedia
+            </p>
+            <div class="comment">
+              <span class="markdown">データメディアに関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a href="#/Media" title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                  >media</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/DataPlayer">
+            <h3>
+              data player<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >データメディアの再生システムに関するクラス。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Player"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                  >player</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/DataRecorder">
+            <h3>
+              data recorder<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder
+            </p>
+            <div class="comment">
+              <span class="markdown">データ記録機材に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Recorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                  >recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Environment">
+            <h3>
+              environment<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Environment
+            </p>
+            <div class="comment">
+              <span class="markdown">収録環境のクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Context"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                  >context</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Generator">
+            <h3>
+              generator<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Generator
+            </p>
+            <div class="comment">
+              <span class="markdown">メディアジェネレータに関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Processor"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                  >processor</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Geometry">
+            <h3>
+              geometry<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Geometry
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >CoordinateSystemで定義された座標系における座標を記述する。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>is in range of</dt>
+              <dd>
+                <a href="#/at" title="http://sdm.hongo.wide.ad.jp/sdmo/at"
+                  >at</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Media">
+            <h3>
+              media<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Media</p>
+            <div class="comment">
+              <span class="markdown">メディアファイルに関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>has sub-classes</dt>
+              <dd>
+                <a
+                  href="#/AudioMedia"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia"
+                  >audio media</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/CompositeMedia"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia"
+                  >composite media</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/DataMedia"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/DataMedia"
+                  >data media</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/VideoMedia"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia"
+                  >video media</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#http://schema.org/contentUrl"
+                  title="http://schema.org/contentUrl"
+                  >content url</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a href="#/endAt" title="http://sdm.hongo.wide.ad.jp/sdmo/endAt"
+                  >end at</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#/mediaStartAt"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt"
+                  >media start at</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#/startAt"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/startAt"
+                  >start at</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/MediaEvent">
+            <h3>
+              media event<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアとMediaEventが属するCompositeMediaの相対時間軸上の時刻情報の対応関係を記述するクラス。MediaEventの相対時刻情報をもとにCompositeMediaの時間軸上にメディアを配置する。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#/eventTime"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/eventTime"
+                  >event time</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#/includedIn"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/includedIn"
+                  >included in</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+              <dt>is in range of</dt>
+              <dd>
+                <a
+                  href="#/includes"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/includes"
+                  >includes</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Player">
+            <h3>
+              player<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Player</p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアの再生システムに関するクラス。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>has sub-classes</dt>
+              <dd>
+                <a
+                  href="#/AudioPlayer"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer"
+                  >audio player</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/CompositePlayer"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer"
+                  >composite player</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/DataPlayer"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer"
+                  >data player</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/VideoPlayer"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer"
+                  >video player</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a href="#/plays" title="http://sdm.hongo.wide.ad.jp/sdmo/plays"
+                  >plays</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+              <dt>is in range of</dt>
+              <dd>
+                <a
+                  href="#/playedBy"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/playedBy"
+                  >played by</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Processor">
+            <h3>
+              processor<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Processor
+            </p>
+            <div class="comment">
+              <span class="markdown">メディアの編集・加工に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>has sub-classes</dt>
+              <dd>
+                <a
+                  href="#/Analyzer"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Analyzer"
+                  >analyzer</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/CompositeProcessor"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor"
+                  >composite processor</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/Converter"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Converter"
+                  >converter</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/Generator"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Generator"
+                  >generator</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Program">
+            <h3>
+              program<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Program
+            </p>
+            <div class="comment">
+              <span class="markdown">イベントプログラムに関する情報。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Context"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                  >context</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#/content"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/content"
+                  >content</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#/programNumber"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/programNumber"
+                  >program number</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>
+              </dd>
+              <dt>is in range of</dt>
+              <dd>
+                <a
+                  href="#/performs"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/performs"
+                  >performs</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Recorder">
+            <h3>
+              recorder<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Recorder
+            </p>
+            <div class="comment">
+              <span class="markdown">収録機材に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd />
+              <dt>has sub-classes</dt>
+              <dd>
+                <a
+                  href="#/AudioRecorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder"
+                  >audio recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/CompositeRecorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder"
+                  >composite recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/DataRecorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder"
+                  >data recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>,
+                <a
+                  href="#/VideoRecorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder"
+                  >video recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#/records"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/records"
+                  >records</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+              <dt>is in range of</dt>
+              <dd>
+                <a
+                  href="#/recordedBy"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/recordedBy"
+                  >recorded by</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/SDMEvent">
+            <h3>
+              SDM event<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent
+            </p>
+            <div class="comment">
+              <span class="markdown">SDMで扱うイベント情報。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Context"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                  >context</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#http://schema.org/contentLocation"
+                  title="http://schema.org/contentLocation"
+                  >content location</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#http://schema.org/performer"
+                  title="http://schema.org/performer"
+                  >performer</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#http://schema.org/startDate"
+                  title="http://schema.org/startDate"
+                  >start date</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>
+              </dd>
+              <dt>is in range of</dt>
+              <dd>
+                <a
+                  href="#/attends"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/attends"
+                  >attends</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/Target">
+            <h3>
+              target<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/Target</p>
+            <div class="comment">
+              <span class="markdown"
+                >収録対象クラス。特定の出演者、オーケストラのパート、楽器などを記述する。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Context"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                  >context</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+              <dt>is in domain of</dt>
+              <dd>
+                <a
+                  href="#/attends"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/attends"
+                  >attends</a
+                >
+                <sup class="type-op" title="object property">op</sup>,
+                <a
+                  href="#/localX"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/localX"
+                  >local x</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#/localY"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/localY"
+                  >local y</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#/localZ"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/localZ"
+                  >local z</a
+                >
+                <sup class="type-dp" title="data property">dp</sup>,
+                <a
+                  href="#/performs"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/performs"
+                  >performs</a
+                >
+                <sup class="type-op" title="object property">op</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/VideoMedia">
+            <h3>
+              video media<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia
+            </p>
+            <div class="comment">
+              <span class="markdown">映像メディアに関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a href="#/Media" title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                  >media</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/VideoPlayer">
+            <h3>
+              video player<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >映像メディアの再生システムに関するクラス。</span
+              >
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Player"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                  >player</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+          <div class="entity" id="/VideoRecorder">
+            <h3>
+              video recorder<sup class="type-c" title="class">c</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#classes">Class ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder
+            </p>
+            <div class="comment">
+              <span class="markdown">映像収録機材に関するクラス。</span>
+            </div>
+            <dl class="description">
+              <dt>has super-classes</dt>
+              <dd>
+                <a
+                  href="#/Recorder"
+                  title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                  >recorder</a
+                >
+                <sup class="type-c" title="class">c</sup>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="objectproperties">
+          <h3 id="properties" class="list">Object Properties</h3>
+          <ul class="hlist">
+            <li>
+              <a href="#/at" title="http://sdm.hongo.wide.ad.jp/sdmo/at">
+                <span>at</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/attends"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/attends"
+              >
+                <span>attends</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/belongsTo"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/belongsTo"
+              >
+                <span>belongs to</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/has" title="http://sdm.hongo.wide.ad.jp/sdmo/has">
+                <span>has</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/includedIn"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/includedIn"
+              >
+                <span>included in</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/includes"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/includes"
+              >
+                <span>includes</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/inputFrom"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/inputFrom"
+              >
+                <span>input from</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/measuredBy"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/measuredBy"
+              >
+                <span>measured by</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/outputTo"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/outputTo"
+              >
+                <span>output to</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/performs"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/performs"
+              >
+                <span>performs</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/playedBy"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/playedBy"
+              >
+                <span>played by</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/plays" title="http://sdm.hongo.wide.ad.jp/sdmo/plays">
+                <span>plays</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/recordedBy"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/recordedBy"
+              >
+                <span>recorded by</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/records"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/records"
+              >
+                <span>records</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/referredBy"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/referredBy"
+              >
+                <span>referred by</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/refers"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/refers"
+              >
+                <span>refers</span>
+              </a>
+            </li>
+          </ul>
+          <div class="entity" id="/at">
+            <h3>
+              at<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/at</p>
+            <div class="comment">
+              <span class="markdown">Geometryを参照する。</span>
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Geometry"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Geometry"
+                    >geometry</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/attends">
+            <h3>
+              attends<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/attends
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >TargetがSDMEventに参加することを表す。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Target"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Target"
+                    >target</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/SDMEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent"
+                    >SDM event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/belongsTo">
+            <h3>
+              belongs to<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/belongsTo
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >インスタンスに属する。原則として同系統クラスを指し示す。hasと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/has">
+            <h3>
+              has<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/has</p>
+            <div class="comment">
+              <span class="markdown"
+                >インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/CompositeMedia"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia"
+                    >composite media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/CompositePlayer"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer"
+                    >composite player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/CompositeProcessor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor"
+                    >composite processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/CompositeRecorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder"
+                    >composite recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/includedIn">
+            <h3>
+              included in<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/includedIn
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >MediaEventがCompositeMediaに包含されることを表す。includesと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/MediaEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent"
+                    >media event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/CompositeMedia"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia"
+                    >composite media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/includes"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/includes"
+                    >includes</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/includes">
+            <h3>
+              includes<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/includes
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >CompositeMediaがMediaEventを包含することを表す。includedInと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/CompositeMedia"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia"
+                    >composite media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/MediaEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent"
+                    >media event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/includedIn"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/includedIn"
+                    >included in</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/inputFrom">
+            <h3>
+              input from<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/inputFrom
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアの入力元。outputToと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/outputTo"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/outputTo"
+                    >output to</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/measuredBy">
+            <h3>
+              measured by<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/measuredBy
+            </p>
+            <div class="comment">
+              <span class="markdown">CoordinateSystemを参照する。</span>
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/CoordinateSystem"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem"
+                    >coordinate system</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Geometry"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Geometry"
+                    >geometry</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/CoordinateSystem"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem"
+                    >coordinate system</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/outputTo">
+            <h3>
+              output to<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/outputTo
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアの出力先。inputFromと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/inputFrom"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/inputFrom"
+                    >input from</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/performs">
+            <h3>
+              performs<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/performs
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >TargetがProgramを演じる、あるいは、演奏することを表す。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Target"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Target"
+                    >target</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Program"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Program"
+                    >program</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/playedBy">
+            <h3>
+              played by<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/playedBy
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >ContextがPlayerによって再生されることを表す。playsと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/plays"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/plays"
+                    >plays</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/plays">
+            <h3>
+              plays<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/plays</p>
+            <div class="comment">
+              <span class="markdown"
+                >PlayerがContextを再生することを表す。playedByと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/playedBy"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/playedBy"
+                    >played by</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/recordedBy">
+            <h3>
+              recorded by<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/recordedBy
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >ContextがRecorderによって収録されることを表す。recordsと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/records"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/records"
+                    >records</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/records">
+            <h3>
+              records<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/records
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >RecorderがContextを収録することを表す。recordedByと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/recordedBy"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/recordedBy"
+                    >recorded by</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/referredBy">
+            <h3>
+              referred by<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/referredBy
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >参照されることを表す。refersと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/MediaEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent"
+                    >media event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/refers"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/refers"
+                    >refers</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/refers">
+            <h3>
+              refers<sup class="type-op" title="object property">op</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#objectproperties">Object Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/refers</p>
+            <div class="comment">
+              <span class="markdown"
+                >参照することを表す。referredByと逆の意味。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/MediaEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent"
+                    >media event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>is inverse of</dt>
+                <dd>
+                  <a
+                    href="#/referredBy"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/referredBy"
+                    >referred by</a
+                  >
+                  <sup class="type-op" title="object property">op</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div id="dataproperties">
+          <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+          <ul class="hlist">
+            <li>
+              <a
+                href="#/content"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/content"
+              >
+                <span>content</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#http://schema.org/contentLocation"
+                title="http://schema.org/contentLocation"
+              >
+                <span>content location</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#http://schema.org/contentUrl"
+                title="http://schema.org/contentUrl"
+              >
+                <span>content url</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/endAt" title="http://sdm.hongo.wide.ad.jp/sdmo/endAt">
+                <span>end at</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/eventTime"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/eventTime"
+              >
+                <span>event time</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/localX"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/localX"
+              >
+                <span>local x</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/localY"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/localY"
+              >
+                <span>local y</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/localZ"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/localZ"
+              >
+                <span>local z</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/mediaStartAt"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt"
+              >
+                <span>media start at</span>
+              </a>
+            </li>
+            <li>
+              <a href="#http://schema.org/name" title="http://schema.org/name">
+                <span>name</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#http://schema.org/performer"
+                title="http://schema.org/performer"
+              >
+                <span>performer</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/programNumber"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/programNumber"
+              >
+                <span>program number</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#/startAt"
+                title="http://sdm.hongo.wide.ad.jp/sdmo/startAt"
+              >
+                <span>start at</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#http://schema.org/startDate"
+                title="http://schema.org/startDate"
+              >
+                <span>start date</span>
+              </a>
+            </li>
+          </ul>
+          <div class="entity" id="/content">
+            <h3>
+              content<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/content
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >プログラム内のコンテンツの名称、あるいは、識別できるもの。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Program"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Program"
+                    >program</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="http://schema.org/contentLocation">
+            <h3>
+              content location<sup class="type-dp" title="data property"
+                >dp</sup
+              >
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://schema.org/contentLocation</p>
+            <div class="comment">
+              <span class="markdown"
+                >The location depicted or described in the content. For example,
+                the location in a photograph or painting.</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/SDMEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent"
+                    >SDM event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="http://schema.org/contentUrl">
+            <h3>
+              content url<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://schema.org/contentUrl</p>
+            <div class="comment">
+              <span class="markdown"
+                >Actual bytes of the media object, for example the image file or
+                video file.</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/endAt">
+            <h3>
+              end at<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/endAt</p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアの再生区間の終了時間。メディアがもつ相対時間軸の終了時刻。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                    >date time stamp</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/eventTime">
+            <h3>
+              event time<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/eventTime
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >CompositeMediaは相対時間軸上にMediaEventを配置してメディアの包含関係を表す。eventTimeは相対時間軸上のMediaEventを再生開始する位置を定める値である。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/MediaEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent"
+                    >media event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                    >date time stamp</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/localX">
+            <h3>
+              local x<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/localX</p>
+            <div class="comment">
+              <span class="markdown"
+                >ローカル空間座標系におけるTargetのx座標。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Target"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Target"
+                    >target</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#decimal"
+                    >decimal</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/localY">
+            <h3>
+              local y<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/localY</p>
+            <div class="comment">
+              <span class="markdown"
+                >ローカル空間座標系におけるTargetのy座標。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Target"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Target"
+                    >target</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#decimal"
+                    >decimal</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/localZ">
+            <h3>
+              local z<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/localZ</p>
+            <div class="comment">
+              <span class="markdown"
+                >ローカル空間座標系におけるTargetのz座標。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Target"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Target"
+                    >target</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#decimal"
+                    >decimal</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/mediaStartAt">
+            <h3>
+              media start at<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt
+            </p>
+            <div class="comment">
+              <span class="markdown">メディアファイルの記録開始時刻。</span>
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                    >date time stamp</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="http://schema.org/name">
+            <h3>
+              name<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://schema.org/name</p>
+            <div class="comment">
+              <span class="markdown">The name of the item.</span>
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Context"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Context"
+                    >context</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Player"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Player"
+                    >player</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Processor"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Processor"
+                    >processor</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                  <span class="logic">or</span>
+                  <a
+                    href="#/Recorder"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Recorder"
+                    >recorder</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="http://schema.org/performer">
+            <h3>
+              performer<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://schema.org/performer</p>
+            <div class="comment">
+              <span class="markdown"
+                >A performer at the event—for example, a presenter, musician,
+                musical group or actor.</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/SDMEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent"
+                    >SDM event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/programNumber">
+            <h3>
+              program number<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong>
+              http://sdm.hongo.wide.ad.jp/sdmo/programNumber
+            </p>
+            <div class="comment">
+              <span class="markdown">プログラムの題目数。</span>
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Program"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Program"
+                    >program</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#integer"
+                    >integer</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="/startAt">
+            <h3>
+              start at<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p>
+              <strong>IRI:</strong> http://sdm.hongo.wide.ad.jp/sdmo/startAt
+            </p>
+            <div class="comment">
+              <span class="markdown"
+                >メディアの再生区間の開始時間。メディアがもつ相対時間軸の開始時刻。</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/Media"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/Media"
+                    >media</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+                <dt>has range</dt>
+                <dd>
+                  <span
+                    class="dotted"
+                    title="http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                    >date time stamp</span
+                  >
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="entity" id="http://schema.org/startDate">
+            <h3>
+              start date<sup class="type-dp" title="data property">dp</sup>
+              <span class="backlink">
+                back to <a href="#toc">ToC</a> or
+                <a href="#dataproperties">Data Property ToC</a>
+              </span>
+            </h3>
+            <p><strong>IRI:</strong> http://schema.org/startDate</p>
+            <div class="comment">
+              <span class="markdown"
+                >The start date and time of the item (in ISO 8601 date
+                format).</span
+              >
+            </div>
+            <div class="description">
+              <dl>
+                <dt>has domain</dt>
+                <dd>
+                  <a
+                    href="#/SDMEvent"
+                    title="http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent"
+                    >SDM event</a
+                  >
+                  <sup class="type-c" title="class">c</sup>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div id="legend">
+          <h2>
+            Legend <span class="backlink"> back to <a href="#toc">ToC</a></span>
+          </h2>
+          <div class="entity">
+            <sup class="type-c" title="Classes">c</sup>: Classes <br />
+            <sup class="type-op" title="Object Properties">op</sup>: Object
+            Properties <br />
+            <sup class="type-dp" title="Data Properties">dp</sup>: Data
+            Properties <br />
+            <sup class="type-ni" title="Named Individuals">ni</sup>: Named
+            Individuals
+          </div>
+        </div>
+      </div>
+
+      <!--REFERENCES SECTION-->
+      <div id="references">
+        <h2 id="ref" class="list">
+          References
+          <span class="backlink"> back to <a href="#toc">ToC</a></span>
+        </h2>
+        <span class="markdown">
+          Add your references here. It is recommended to have them as a
+          list.</span
+        >
+      </div>
+
+      <!--CHANGELOG SECTION-->
+      <div id="changelog">
+        <div id="changelog">
+          <h2 id="changes" class="list">Changes from last version</h2>
+          <h3 id="changeClass" class="list">Classes</h3>
+          <details>
+            <summary><u>Modified classes</u></summary>
+            <ul>
+              <li>
+                <a href="#/AudioMedia"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia</a
+                >
+                <ul>
+                  <li>Added: rdfs:comment "音声メディアに関するクラス。"@ja</li>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Media
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    Deleted: SubClass of
+                    http://sdm.hongo.wide.ad.jp/sdmo/MediaObject
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/AudioRecorder"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder</a
+                >
+                <ul>
+                  <li>Added: rdfs:comment "音声収録機材に関するクラス。"@ja</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Context">http://sdm.hongo.wide.ad.jp/sdmo/Context</a>
+                <ul>
+                  <li>
+                    Added: rdfs:comment
+                    "収録するイベントに関わる総合的な情報。"@ja
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/DataMedia"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/DataMedia</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Media
+                  </li>
+                  <li>
+                    Added: rdfs:comment "データメディアに関するクラス。"@ja
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    Deleted: SubClass of
+                    http://sdm.hongo.wide.ad.jp/sdmo/MediaObject
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/DataRecorder"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder</a
+                >
+                <ul>
+                  <li>
+                    Added: rdfs:comment "データ記録機材に関するクラス。"@ja
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Recorder"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Recorder</a
+                >
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li>Added: rdfs:comment "収録機材に関するクラス。"@ja</li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/SDMEvent"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent</a
+                >
+                <ul>
+                  <li></li>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Context
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li>Added: rdfs:comment "SDMで扱うイベント情報。"@ja</li>
+                  <li></li>
+                  <li>Added: rdfs:label "SDM event"^^xsd:string</li>
+                </ul>
+                <ul>
+                  <li>
+                    Deleted: SubClass of
+                    http://purl.org/NET/c4dm/event.owl#Event
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Target">http://sdm.hongo.wide.ad.jp/sdmo/Target</a>
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Context
+                  </li>
+                  <li></li>
+                  <li>
+                    Added: rdfs:comment
+                    "収録対象クラス。特定の出演者、オーケストラのパート、楽器などを記述する。"@ja
+                  </li>
+                  <li></li>
+                  <li></li>
+                </ul>
+
+                <ul>
+                  <li>Deleted: SubClass of http://xmlns.com/foaf/0.1/Agent</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/VideoMedia"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Media
+                  </li>
+                  <li>Added: rdfs:comment "映像メディアに関するクラス。"@ja</li>
+                </ul>
+                <ul>
+                  <li>
+                    Deleted: SubClass of
+                    http://sdm.hongo.wide.ad.jp/sdmo/MediaObject
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/VideoRecorder"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder</a
+                >
+                <ul>
+                  <li>Added: rdfs:comment "映像収録機材に関するクラス。"@ja</li>
+                </ul>
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary><u>Added classes</u></summary>
+            <ul>
+              <li>
+                <a href="#/Analyzer"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Analyzer</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/AudioPlayer"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Player
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/CompositeMedia"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia</a
+                >
+                <ul>
+                  <li></li>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Media
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/CompositePlayer"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer</a
+                >
+                <ul>
+                  <li></li>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Player
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/CompositeProcessor"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor
+                  </li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/CompositeRecorder"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Recorder
+                  </li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Contents"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Contents</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Context
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Converter"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Converter</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/CoordinateSystem"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem</a
+                >
+                <ul>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/DataPlayer"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Player
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Environment"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Environment</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Context
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Generator"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Generator</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Geometry"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Geometry</a
+                >
+                <ul>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Media">http://sdm.hongo.wide.ad.jp/sdmo/Media</a>
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/MediaEvent"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent</a
+                >
+                <ul>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Player">http://sdm.hongo.wide.ad.jp/sdmo/Player</a>
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Processor"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Processor</a
+                >
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/Program">http://sdm.hongo.wide.ad.jp/sdmo/Program</a>
+                <ul>
+                  <li></li>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Context
+                  </li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/VideoPlayer"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer</a
+                >
+                <ul>
+                  <li>
+                    Added: SubClass of http://sdm.hongo.wide.ad.jp/sdmo/Player
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary><u>Deleted classes</u></summary>
+            <ul>
+              <li>
+                <a href="#http://purl.org/NET/c4dm/event.owl#Event"
+                  >http://purl.org/NET/c4dm/event.owl#Event</a
+                >
+              </li>
+              <li>
+                <a href="#/Audience"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Audience</a
+                >
+              </li>
+              <li>
+                <a href="#/MediaObject"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/MediaObject</a
+                >
+              </li>
+              <li>
+                <a href="#/Musician"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/Musician</a
+                >
+              </li>
+              <li>
+                <a href="#/Staff">http://sdm.hongo.wide.ad.jp/sdmo/Staff</a>
+              </li>
+              <li>
+                <a href="#http://xmlns.com/foaf/0.1/Agent"
+                  >http://xmlns.com/foaf/0.1/Agent</a
+                >
+              </li>
+            </ul>
+          </details>
+          <h3 id="changeProp" class="list">Object Properties</h3>
+          <details>
+            <summary><u>Added properties</u></summary>
+            <ul>
+              <li>
+                <a href="#/at">http://sdm.hongo.wide.ad.jp/sdmo/at</a>
+                <ul>
+                  <li>
+                    Added: Range http://sdm.hongo.wide.ad.jp/sdmo/Geometry
+                  </li>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Context,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/attends">http://sdm.hongo.wide.ad.jp/sdmo/attends</a>
+                <ul>
+                  <li>
+                    Added: Range http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent
+                  </li>
+                  <li>Added: domain http://sdm.hongo.wide.ad.jp/sdmo/Target</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/belongsTo"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/belongsTo</a
+                >
+                <ul>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Context,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                  <li>
+                    Added: Range Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Context,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/has">http://sdm.hongo.wide.ad.jp/sdmo/has</a>
+                <ul>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia,
+                    http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer,
+                    http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Context)
+                  </li>
+                  <li>
+                    Added: Range Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Context,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/includedIn"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/includedIn</a
+                >
+                <ul>
+                  <li>
+                    Added: Range http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia
+                  </li>
+                  <li>
+                    Added: domain http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/includedIn&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/includes&gt;)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/includes"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/includes</a
+                >
+                <ul>
+                  <li>
+                    Added: domain
+                    http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/includedIn&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/includes&gt;)
+                  </li>
+                  <li>
+                    Added: Range http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/inputFrom"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/inputFrom</a
+                >
+                <ul>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor)
+                  </li>
+                  <li>
+                    Added: Range Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/inputFrom&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/outputTo&gt;)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/measuredBy"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/measuredBy</a
+                >
+                <ul>
+                  <li>
+                    Added: Range
+                    http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem
+                  </li>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Geometry,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/outputTo"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/outputTo</a
+                >
+                <ul>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/inputFrom&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/outputTo&gt;)
+                  </li>
+                  <li>
+                    Added: Range Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/performs"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/performs</a
+                >
+                <ul>
+                  <li>Added: Range http://sdm.hongo.wide.ad.jp/sdmo/Program</li>
+                  <li>Added: domain http://sdm.hongo.wide.ad.jp/sdmo/Target</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/playedBy"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/playedBy</a
+                >
+                <ul>
+                  <li>
+                    Added: domain http://sdm.hongo.wide.ad.jp/sdmo/Context
+                  </li>
+                  <li>Added: Range http://sdm.hongo.wide.ad.jp/sdmo/Player</li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/playedBy&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/plays&gt;)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/plays">http://sdm.hongo.wide.ad.jp/sdmo/plays</a>
+                <ul>
+                  <li>Added: Range http://sdm.hongo.wide.ad.jp/sdmo/Context</li>
+                  <li>Added: domain http://sdm.hongo.wide.ad.jp/sdmo/Player</li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/playedBy&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/plays&gt;)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/recordedBy"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/recordedBy</a
+                >
+                <ul>
+                  <li>
+                    Added: domain http://sdm.hongo.wide.ad.jp/sdmo/Context
+                  </li>
+                  <li>
+                    Added: Range http://sdm.hongo.wide.ad.jp/sdmo/Recorder
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/recordedBy&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/records&gt;)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/records">http://sdm.hongo.wide.ad.jp/sdmo/records</a>
+                <ul>
+                  <li>Added: Range http://sdm.hongo.wide.ad.jp/sdmo/Context</li>
+                  <li>
+                    Added: domain http://sdm.hongo.wide.ad.jp/sdmo/Recorder
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/recordedBy&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/records&gt;)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/referredBy"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/referredBy</a
+                >
+                <ul>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Context,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Media)
+                  </li>
+                  <li>
+                    Added: Range Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/referredBy&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/refers&gt;)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/refers">http://sdm.hongo.wide.ad.jp/sdmo/refers</a>
+                <ul>
+                  <li>
+                    Added: Range Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Context,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Media)
+                  </li>
+                  <li>
+                    Added: InverseObjectProperties
+                    InverseObjectProperties(&lt;http://sdm.hongo.wide.ad.jp/sdmo/referredBy&gt;
+                    &lt;http://sdm.hongo.wide.ad.jp/sdmo/refers&gt;)
+                  </li>
+                  <li>
+                    Added: domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </details>
+          <h3 id="changeDataProp" class="list">Data Properties</h3>
+          <details>
+            <summary><u>Added data properties</u></summary>
+            <ul>
+              <li>
+                <a href="#http://schema.org/contentLocation"
+                  >http://schema.org/contentLocation</a
+                >
+                <ul>
+                  <li>
+                    Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#http://schema.org/contentUrl"
+                  >http://schema.org/contentUrl</a
+                >
+                <ul>
+                  <li>Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Media</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#http://schema.org/name">http://schema.org/name</a>
+                <ul>
+                  <li>
+                    Added: Domain Union of
+                    (http://sdm.hongo.wide.ad.jp/sdmo/Context,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Media,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Player,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Processor,
+                    http://sdm.hongo.wide.ad.jp/sdmo/Recorder)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#http://schema.org/performer"
+                  >http://schema.org/performer</a
+                >
+                <ul>
+                  <li>
+                    Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#http://schema.org/startDate"
+                  >http://schema.org/startDate</a
+                >
+                <ul>
+                  <li>
+                    Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/content">http://sdm.hongo.wide.ad.jp/sdmo/content</a>
+                <ul>
+                  <li>
+                    Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Program
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/endAt">http://sdm.hongo.wide.ad.jp/sdmo/endAt</a>
+                <ul>
+                  <li>Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Media</li>
+                  <li>
+                    Added: Range http://www.w3.org/2001/XMLSchema#dateTimeStamp
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/eventTime"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/eventTime</a
+                >
+                <ul>
+                  <li>
+                    Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent
+                  </li>
+                  <li>
+                    Added: Range http://www.w3.org/2001/XMLSchema#dateTimeStamp
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/localX">http://sdm.hongo.wide.ad.jp/sdmo/localX</a>
+                <ul>
+                  <li>Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Target</li>
+                  <li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/localY">http://sdm.hongo.wide.ad.jp/sdmo/localY</a>
+                <ul>
+                  <li>Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Target</li>
+                  <li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/localZ">http://sdm.hongo.wide.ad.jp/sdmo/localZ</a>
+                <ul>
+                  <li>Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Target</li>
+                  <li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/mediaStartAt"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt</a
+                >
+                <ul>
+                  <li>
+                    Added: Range http://www.w3.org/2001/XMLSchema#dateTimeStamp
+                  </li>
+                  <li>Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Media</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/programNumber"
+                  >http://sdm.hongo.wide.ad.jp/sdmo/programNumber</a
+                >
+                <ul>
+                  <li>
+                    Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Program
+                  </li>
+                  <li>Added: Range http://www.w3.org/2001/XMLSchema#integer</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#/startAt">http://sdm.hongo.wide.ad.jp/sdmo/startAt</a>
+                <ul>
+                  <li>Added: Domain http://sdm.hongo.wide.ad.jp/sdmo/Media</li>
+                  <li>
+                    Added: Range http://www.w3.org/2001/XMLSchema#dateTimeStamp
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div id="acknowledgements">
+        <h2 id="ack" class="list">
+          Acknowledgements
+          <span class="backlink"> back to <a href="#toc">ToC</a></span>
+        </h2>
+        <p>
+          The authors would like to thank
+          <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing
+          <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL
+          Documentation Environment, which is used for representing the Cross
+          Referencing Section of this document and
+          <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for
+          developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the
+          program used to create the template used in this documentation.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

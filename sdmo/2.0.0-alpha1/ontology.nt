@@ -1,0 +1,922 @@
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://www.w3.org/2002/07/owl#versionIRI> <http://sdm.hongo.wide.ad.jp/sdmo/2.0.0> .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/contributor> "Chihei Kawamura"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/contributor> "Hiraku Okumura"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/contributor> "Masahiro Ikeda"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/contributor> "Ray Atarashi"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/contributor> "Takashi Kasuya"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/contributor> "Yu Komohara"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/creator> "Hiroshi Esaki"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/creator> "Manabu Tsukada"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/creator> "Shin Kato"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/creator> "Takuro Sone"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/description> "An ontology for the multi-media domain that models the workflow from production to consumption."@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/description> "マルチメディア制作フローを管理するオントロジー"@ja .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/publisher> "Software Defined Media Consortium"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/publisher> "Software Defined Mediaコンソーシアム"@ja .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/rights> "Copyright 2020, Software Defined Media Consortium" .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/title> "SDM Ontology"@en .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/elements/1.1/title> "SDMオントロジー"@ja .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/dc/terms/created> "2020-07-17T18:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/vocab/vann/preferredNamespacePrefix> "sdmo" .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://sdm.hongo.wide.ad.jp/sdmo" .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://www.w3.org/2002/07/owl#priorVersion> <http://sdm.hongo.wide.ad.jp/sdmo/SDMontology.owl> .
+<http://sdm.hongo.wide.ad.jp/sdmo> <http://www.w3.org/2002/07/owl#versionInfo> "2.0.0-alpha" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/publisher
+<http://purl.org/dc/elements/1.1/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/at
+<http://sdm.hongo.wide.ad.jp/sdmo/at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/at> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/at> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/Geometry> .
+<http://sdm.hongo.wide.ad.jp/sdmo/at> <http://www.w3.org/2000/01/rdf-schema#comment> "Geometryを参照する。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/attends
+<http://sdm.hongo.wide.ad.jp/sdmo/attends> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/attends> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Target> .
+<http://sdm.hongo.wide.ad.jp/sdmo/attends> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> .
+<http://sdm.hongo.wide.ad.jp/sdmo/attends> <http://www.w3.org/2000/01/rdf-schema#comment> "TargetがSDMEventに参加することを表す。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/belongsTo
+<http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid6 <http://www.w3.org/2002/07/owl#unionOf> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> <http://www.w3.org/2000/01/rdf-schema#range> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid12 <http://www.w3.org/2002/07/owl#unionOf> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid16 .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> <http://www.w3.org/2000/01/rdf-schema#comment> "インスタンスに属する。原則として同系統クラスを指し示す。hasと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/has
+<http://sdm.hongo.wide.ad.jp/sdmo/has> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/has> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid18 <http://www.w3.org/2002/07/owl#unionOf> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid19 .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/has> <http://www.w3.org/2000/01/rdf-schema#range> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid24 <http://www.w3.org/2002/07/owl#unionOf> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid27 .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/has> <http://www.w3.org/2000/01/rdf-schema#comment> "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/includedIn
+<http://sdm.hongo.wide.ad.jp/sdmo/includedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/includedIn> <http://www.w3.org/2002/07/owl#inverseOf> <http://sdm.hongo.wide.ad.jp/sdmo/includes> .
+<http://sdm.hongo.wide.ad.jp/sdmo/includedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> .
+<http://sdm.hongo.wide.ad.jp/sdmo/includedIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> .
+<http://sdm.hongo.wide.ad.jp/sdmo/includedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "MediaEventがCompositeMediaに包含されることを表す。includesと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/includes
+<http://sdm.hongo.wide.ad.jp/sdmo/includes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/includes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> .
+<http://sdm.hongo.wide.ad.jp/sdmo/includes> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> .
+<http://sdm.hongo.wide.ad.jp/sdmo/includes> <http://www.w3.org/2000/01/rdf-schema#comment> "CompositeMediaがMediaEventを包含することを表す。includedInと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/inputFrom
+<http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> <http://www.w3.org/2002/07/owl#inverseOf> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+<http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid30 <http://www.w3.org/2002/07/owl#unionOf> _:genid33 .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> <http://www.w3.org/2000/01/rdf-schema#range> _:genid34 .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid34 <http://www.w3.org/2002/07/owl#unionOf> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid35 .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの入力元。outputToと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/measuredBy
+<http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid38 <http://www.w3.org/2002/07/owl#unionOf> _:genid42 .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid41 .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Geometry> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid40 .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid39 .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> .
+<http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> <http://www.w3.org/2000/01/rdf-schema#comment> "CoordinateSystemを参照する。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/outputTo
+<http://sdm.hongo.wide.ad.jp/sdmo/outputTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/outputTo> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid43 <http://www.w3.org/2002/07/owl#unionOf> _:genid46 .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid45 .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid44 .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/outputTo> <http://www.w3.org/2000/01/rdf-schema#range> _:genid47 .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid47 <http://www.w3.org/2002/07/owl#unionOf> _:genid50 .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid49 .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid48 .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/outputTo> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの出力先。inputFromと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/performs
+<http://sdm.hongo.wide.ad.jp/sdmo/performs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/performs> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Target> .
+<http://sdm.hongo.wide.ad.jp/sdmo/performs> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/Program> .
+<http://sdm.hongo.wide.ad.jp/sdmo/performs> <http://www.w3.org/2000/01/rdf-schema#comment> "TargetがProgramを演じる、あるいは、演奏することを表す。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/playedBy
+<http://sdm.hongo.wide.ad.jp/sdmo/playedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/playedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://sdm.hongo.wide.ad.jp/sdmo/plays> .
+<http://sdm.hongo.wide.ad.jp/sdmo/playedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/playedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/playedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "ContextがPlayerによって再生されることを表す。playsと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/plays
+<http://sdm.hongo.wide.ad.jp/sdmo/plays> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/plays> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/plays> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/plays> <http://www.w3.org/2000/01/rdf-schema#comment> "PlayerがContextを再生することを表す。playedByと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/recordedBy
+<http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://sdm.hongo.wide.ad.jp/sdmo/records> .
+<http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "ContextがRecorderによって収録されることを表す。recordsと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/records
+<http://sdm.hongo.wide.ad.jp/sdmo/records> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/records> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/records> <http://www.w3.org/2000/01/rdf-schema#range> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/records> <http://www.w3.org/2000/01/rdf-schema#comment> "RecorderがContextを収録することを表す。recordedByと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/referredBy
+<http://sdm.hongo.wide.ad.jp/sdmo/referredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/referredBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://sdm.hongo.wide.ad.jp/sdmo/refers> .
+<http://sdm.hongo.wide.ad.jp/sdmo/referredBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid51 .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid51 <http://www.w3.org/2002/07/owl#unionOf> _:genid53 .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid52 .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/referredBy> <http://www.w3.org/2000/01/rdf-schema#range> _:genid54 .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid54 <http://www.w3.org/2002/07/owl#unionOf> _:genid58 .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid57 .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid56 .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid55 .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/referredBy> <http://www.w3.org/2000/01/rdf-schema#comment> "参照されることを表す。refersと逆の意味。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/refers
+<http://sdm.hongo.wide.ad.jp/sdmo/refers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/refers> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid59 .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid59 <http://www.w3.org/2002/07/owl#unionOf> _:genid63 .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid62 .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid61 .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid60 .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/refers> <http://www.w3.org/2000/01/rdf-schema#range> _:genid64 .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid64 <http://www.w3.org/2002/07/owl#unionOf> _:genid66 .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid65 .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://sdm.hongo.wide.ad.jp/sdmo/refers> <http://www.w3.org/2000/01/rdf-schema#comment> "参照することを表す。referredByと逆の意味。"@ja .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://schema.org/contentLocation
+<http://schema.org/contentLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://schema.org/contentLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> .
+<http://schema.org/contentLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "The location depicted or described in the content. For example, the location in a photograph or painting."@en .
+<http://schema.org/contentLocation> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://schema.org/contentLocation"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://schema.org/contentUrl
+<http://schema.org/contentUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://schema.org/contentUrl> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://schema.org/contentUrl> <http://www.w3.org/2000/01/rdf-schema#comment> "Actual bytes of the media object, for example the image file or video file."@en .
+<http://schema.org/contentUrl> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://schema.org/contentUrl"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://schema.org/name
+<http://schema.org/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://schema.org/name> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid67 .
+_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid67 <http://www.w3.org/2002/07/owl#unionOf> _:genid72 .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid71 .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid70 .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid69 .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid68 .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://schema.org/name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the item."@en .
+<http://schema.org/name> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://schema.org/name"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://schema.org/performer
+<http://schema.org/performer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://schema.org/performer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> .
+<http://schema.org/performer> <http://www.w3.org/2000/01/rdf-schema#comment> "A performer at the event—for example, a presenter, musician, musical group or actor."@en .
+<http://schema.org/performer> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://schema.org/performer"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://schema.org/startDate
+<http://schema.org/startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://schema.org/startDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> .
+<http://schema.org/startDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The start date and time of the item (in ISO 8601 date format)."@en .
+<http://schema.org/startDate> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://schema.org/startDate"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/content
+<http://sdm.hongo.wide.ad.jp/sdmo/content> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/content> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Program> .
+<http://sdm.hongo.wide.ad.jp/sdmo/content> <http://www.w3.org/2000/01/rdf-schema#comment> "プログラム内のコンテンツの名称、あるいは、識別できるもの。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/endAt
+<http://sdm.hongo.wide.ad.jp/sdmo/endAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/endAt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/endAt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/endAt> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの再生区間の終了時間。メディアがもつ相対時間軸の終了時刻。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/eventTime
+<http://sdm.hongo.wide.ad.jp/sdmo/eventTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/eventTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> .
+<http://sdm.hongo.wide.ad.jp/sdmo/eventTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/eventTime> <http://www.w3.org/2000/01/rdf-schema#comment> "CompositeMediaは相対時間軸上にMediaEventを配置してメディアの包含関係を表す。eventTimeは相対時間軸上のMediaEventを再生開始する位置を定める値である。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/localX
+<http://sdm.hongo.wide.ad.jp/sdmo/localX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localX> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Target> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localX> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localX> <http://www.w3.org/2000/01/rdf-schema#comment> "ローカル空間座標系におけるTargetのx座標。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/localY
+<http://sdm.hongo.wide.ad.jp/sdmo/localY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localY> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Target> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localY> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localY> <http://www.w3.org/2000/01/rdf-schema#comment> "ローカル空間座標系におけるTargetのy座標。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/localZ
+<http://sdm.hongo.wide.ad.jp/sdmo/localZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localZ> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Target> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localZ> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://sdm.hongo.wide.ad.jp/sdmo/localZ> <http://www.w3.org/2000/01/rdf-schema#comment> "ローカル空間座標系におけるTargetのz座標。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt
+<http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアファイルの記録開始時刻。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/programNumber
+<http://sdm.hongo.wide.ad.jp/sdmo/programNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/programNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Program> .
+<http://sdm.hongo.wide.ad.jp/sdmo/programNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://sdm.hongo.wide.ad.jp/sdmo/programNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "プログラムの題目数。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/startAt
+<http://sdm.hongo.wide.ad.jp/sdmo/startAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://sdm.hongo.wide.ad.jp/sdmo/startAt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/startAt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/startAt> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの再生区間の開始時間。メディアがもつ相対時間軸の開始時刻。"@ja .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Analyzer
+<http://sdm.hongo.wide.ad.jp/sdmo/Analyzer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Analyzer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Analyzer> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの分析に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia> <http://www.w3.org/2000/01/rdf-schema#comment> "音声メディアに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "音声メディアの再生システムに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder> <http://www.w3.org/2000/01/rdf-schema#comment> "音声収録機材に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid73 .
+_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid73 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/has> .
+_:genid73 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアファイル間の包含関係に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid74 .
+_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid74 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/has> .
+_:genid74 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの再生システム間の包含関係に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid75 .
+_:genid75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid75 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/has> .
+_:genid75 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの編集作業間の包含関係に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid76 .
+_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid76 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/has> .
+_:genid76 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder> <http://www.w3.org/2000/01/rdf-schema#comment> "収録機材間の包含関係に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Contents
+<http://sdm.hongo.wide.ad.jp/sdmo/Contents> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Contents> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Contents> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアやパッケージに関する情報。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Context
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid77 .
+_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid77 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/has> .
+_:genid77 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid78 .
+_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid78 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/playedBy> .
+_:genid78 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid79 .
+_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid79 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/recordedBy> .
+_:genid79 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid80 .
+_:genid80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid80 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> .
+_:genid80 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid81 .
+_:genid81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid81 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> .
+_:genid81 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid82 .
+_:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid82 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> .
+_:genid82 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid83 .
+_:genid83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid83 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/at> .
+_:genid83 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid83 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Geometry> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid84 .
+_:genid84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid84 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> .
+_:genid84 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid84 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid85 .
+_:genid85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid85 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/name> .
+_:genid85 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid85 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Context> <http://www.w3.org/2000/01/rdf-schema#comment> "収録するイベントに関わる総合的な情報。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Converter
+<http://sdm.hongo.wide.ad.jp/sdmo/Converter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Converter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Converter> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの変換に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem
+<http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid86 .
+_:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid86 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> .
+_:genid86 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid86 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> .
+<http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "時空間座標系の定義に関するクラス。緯度経度の地理座標系やイベント会場内に定義する空間座標系、収録したメディアファイルの時間軸などを記述する。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/DataMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/DataMedia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/DataMedia> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/DataMedia> <http://www.w3.org/2000/01/rdf-schema#comment> "データメディアに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "データメディアの再生システムに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder> <http://www.w3.org/2000/01/rdf-schema#comment> "データ記録機材に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Environment
+<http://sdm.hongo.wide.ad.jp/sdmo/Environment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Environment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Environment> <http://www.w3.org/2000/01/rdf-schema#comment> "収録環境のクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Generator
+<http://sdm.hongo.wide.ad.jp/sdmo/Generator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Generator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Generator> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアジェネレータに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Geometry
+<http://sdm.hongo.wide.ad.jp/sdmo/Geometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Geometry> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid87 .
+_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid87 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> .
+_:genid87 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid87 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Geometry> <http://www.w3.org/2000/01/rdf-schema#comment> "CoordinateSystemで定義された座標系における座標を記述する。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Media
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid88 .
+_:genid88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid88 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid88 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid89 .
+_:genid89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid89 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid89 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid90 .
+_:genid90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid90 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid90 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid91 .
+_:genid91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid91 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid91 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid92 .
+_:genid92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid92 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/referredBy> .
+_:genid92 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid93 .
+_:genid93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid93 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> .
+_:genid93 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid93 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid94 .
+_:genid94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid94 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> .
+_:genid94 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid94 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid95 .
+_:genid95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid95 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/contentUrl> .
+_:genid95 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid95 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid96 .
+_:genid96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid96 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/name> .
+_:genid96 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid96 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid97 .
+_:genid97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid97 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/endAt> .
+_:genid97 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid97 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid98 .
+_:genid98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid98 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt> .
+_:genid98 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid98 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid99 .
+_:genid99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid99 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/startAt> .
+_:genid99 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid99 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Media> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアファイルに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent
+<http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid100 .
+_:genid100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid100 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/refers> .
+_:genid100 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid100 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid101 .
+_:genid101 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid101 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/eventTime> .
+_:genid101 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid101 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアとMediaEventが属するCompositeMediaの相対時間軸上の時刻情報の対応関係を記述するクラス。MediaEventの相対時刻情報をもとにCompositeMediaの時間軸上にメディアを配置する。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Player
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid102 .
+_:genid102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid102 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid102 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid103 .
+_:genid103 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid103 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid103 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid104 .
+_:genid104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid104 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid104 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid105 .
+_:genid105 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid105 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/at> .
+_:genid105 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid105 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Geometry> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid106 .
+_:genid106 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid106 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> .
+_:genid106 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid106 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid107 .
+_:genid107 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid107 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/plays> .
+_:genid107 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid107 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid108 .
+_:genid108 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid108 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/refers> .
+_:genid108 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid108 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid109 .
+_:genid109 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid109 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/name> .
+_:genid109 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid109 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Player> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの再生システムに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Processor
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid110 .
+_:genid110 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid110 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid110 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid111 .
+_:genid111 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid111 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid111 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid112 .
+_:genid112 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid112 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/inputFrom> .
+_:genid112 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid113 .
+_:genid113 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid113 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid113 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid114 .
+_:genid114 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid114 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid114 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid115 .
+_:genid115 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid115 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid115 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid116 .
+_:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid116 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/at> .
+_:genid116 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid116 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Geometry> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid117 .
+_:genid117 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid117 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> .
+_:genid117 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid117 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid118 .
+_:genid118 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid118 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/refers> .
+_:genid118 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid118 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid119 .
+_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid119 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/name> .
+_:genid119 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid119 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Processor> <http://www.w3.org/2000/01/rdf-schema#comment> "メディアの編集・加工に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Program
+<http://sdm.hongo.wide.ad.jp/sdmo/Program> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Program> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Program> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid120 .
+_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid120 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/content> .
+_:genid120 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Program> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid121 .
+_:genid121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid121 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/content> .
+_:genid121 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Program> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid122 .
+_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid122 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/programNumber> .
+_:genid122 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid122 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Program> <http://www.w3.org/2000/01/rdf-schema#comment> "イベントプログラムに関する情報。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Recorder
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid123 .
+_:genid123 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid123 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid123 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid124 .
+_:genid124 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid124 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid124 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid125 .
+_:genid125 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid125 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/outputTo> .
+_:genid125 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://sdm.hongo.wide.ad.jp/sdmo/Processor> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid126 .
+_:genid126 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid126 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/at> .
+_:genid126 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid126 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Geometry> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid127 .
+_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid127 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/belongsTo> .
+_:genid127 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid127 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid128 .
+_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid128 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/measuredBy> .
+_:genid128 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid128 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid129 .
+_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid129 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/records> .
+_:genid129 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid129 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid130 .
+_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid130 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/refers> .
+_:genid130 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid130 <http://www.w3.org/2002/07/owl#onClass> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid131 .
+_:genid131 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid131 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/name> .
+_:genid131 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid131 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Recorder> <http://www.w3.org/2000/01/rdf-schema#comment> "収録機材に関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid132 .
+_:genid132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid132 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/contentLocation> .
+_:genid132 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid133 .
+_:genid133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid133 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/contentLocation> .
+_:genid133 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid134 .
+_:genid134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid134 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/performer> .
+_:genid134 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid135 .
+_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid135 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/performer> .
+_:genid135 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid136 .
+_:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid136 <http://www.w3.org/2002/07/owl#onProperty> <http://schema.org/startDate> .
+_:genid136 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid136 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "SDMで扱うイベント情報。"@ja .
+<http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent> <http://www.w3.org/2000/01/rdf-schema#label> "SDM event" .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/Target
+<http://sdm.hongo.wide.ad.jp/sdmo/Target> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Target> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Context> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Target> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid137 .
+_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid137 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/localX> .
+_:genid137 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid137 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Target> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid138 .
+_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid138 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/localY> .
+_:genid138 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid138 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Target> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid139 .
+_:genid139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid139 <http://www.w3.org/2002/07/owl#onProperty> <http://sdm.hongo.wide.ad.jp/sdmo/localZ> .
+_:genid139 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid139 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://sdm.hongo.wide.ad.jp/sdmo/Target> <http://www.w3.org/2000/01/rdf-schema#comment> "収録対象クラス。特定の出演者、オーケストラのパート、楽器などを記述する。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Media> .
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia> <http://www.w3.org/2000/01/rdf-schema#comment> "映像メディアに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Player> .
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "映像メディアの再生システムに関するクラス。"@ja .
+# 
+# http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://sdm.hongo.wide.ad.jp/sdmo/Recorder> .
+<http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder> <http://www.w3.org/2000/01/rdf-schema#comment> "映像収録機材に関するクラス。"@ja .
+# 
+# Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/

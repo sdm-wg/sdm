@@ -1,0 +1,2195 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "ja", "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://sdm.hongo.wide.ad.jp/sdmo", "http://schema.org", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema" ],
+    "title" : {
+      "ja" : "SDMオントロジー",
+      "en" : "SDM Ontology"
+    },
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "version" : "2.0.0-alpha",
+    "author" : [ "Takuro Sone", "Shin Kato", "Manabu Tsukada", "Hiroshi Esaki" ],
+    "description" : {
+      "ja" : "マルチメディア制作フローを管理するオントロジー",
+      "en" : "An ontology for the multi-media domain that models the workflow from production to consumption."
+    },
+    "other" : {
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
+        "language" : "undefined",
+        "value" : "http://sdm.hongo.wide.ad.jp/sdmo/SDMontology.owl",
+        "type" : "iri"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Manabu Tsukada",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Shin Kato",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Hiroshi Esaki",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "en",
+        "value" : "Takuro Sone",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Masahiro Ikeda",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Hiraku Okumura",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Ray Atarashi",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Takashi Kasuya",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Yu Komohara",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Chihei Kawamura",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2020-07-17T18:00:00",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "sdmo",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "undefined",
+        "value" : "Copyright 2020, Software Defined Media Consortium",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "en",
+        "value" : "Software Defined Media Consortium",
+        "type" : "label"
+      }, {
+        "identifier" : "publisher",
+        "language" : "ja",
+        "value" : "Software Defined Mediaコンソーシアム",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "2.0.0-alpha",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "http://sdm.hongo.wide.ad.jp/sdmo",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "ja",
+        "value" : "SDMオントロジー",
+        "type" : "label"
+      }, {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "SDM Ontology",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "43",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "56",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "57",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "58",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "62",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "10",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "30",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "63",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "64",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "66",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "67",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "68",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "69",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "70",
+    "type" : "owl:Class"
+  }, {
+    "id" : "71",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "77",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "82",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "86",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "93",
+    "type" : "owl:Class"
+  }, {
+    "id" : "105",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "54",
+    "type" : "owl:Class"
+  }, {
+    "id" : "106",
+    "type" : "owl:Class"
+  }, {
+    "id" : "107",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "108",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "109",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "98",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "96",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "79",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "104",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "112",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "115",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "84",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "118",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "60",
+    "type" : "owl:Class"
+  }, {
+    "id" : "61",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "65",
+    "type" : "owl:Class"
+  }, {
+    "id" : "89",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "117",
+    "type" : "owl:Class"
+  }, {
+    "id" : "110",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CoordinateSystem",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CoordinateSystem"
+    },
+    "comment" : {
+      "ja" : "時空間座標系の定義に関するクラス。緯度経度の地理座標系やイベント会場内に定義する空間座標系、収録したメディアファイルの時間軸などを記述する。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "3"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/VideoRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VideoRecorder"
+    },
+    "comment" : {
+      "ja" : "映像収録機材に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "4",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "13",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "16",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Generator",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Generator"
+    },
+    "comment" : {
+      "ja" : "メディアジェネレータに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "18",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/MediaEvent",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MediaEvent"
+    },
+    "comment" : {
+      "ja" : "メディアとMediaEventが属するCompositeMediaの相対時間軸上の時刻情報の対応関係を記述するクラス。MediaEventの相対時刻情報をもとにCompositeMediaの時間軸上にメディアを配置する。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/DataPlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataPlayer"
+    },
+    "comment" : {
+      "ja" : "データメディアの再生システムに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "28",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Analyzer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Analyzer"
+    },
+    "comment" : {
+      "ja" : "メディアの分析に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "34",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Processor",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Processor"
+    },
+    "subClasses" : [ "35", "36", "18", "34" ],
+    "comment" : {
+      "ja" : "メディアの編集・加工に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "2"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/VideoPlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VideoPlayer"
+    },
+    "comment" : {
+      "ja" : "映像メディアの再生システムに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "39",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Converter",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Converter"
+    },
+    "comment" : {
+      "ja" : "メディアの変換に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "36",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/VideoMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VideoMedia"
+    },
+    "comment" : {
+      "ja" : "映像メディアに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "43",
+    "superClasses" : [ "6" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "2", "1", "8" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "11"
+  }, {
+    "instances" : 0,
+    "union" : [ "54", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "56"
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "2", "1", "8" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "57"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositePlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositePlayer"
+    },
+    "comment" : {
+      "ja" : "メディアの再生システム間の包含関係に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "58",
+    "superClasses" : [ "8" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "1", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "29"
+  }, {
+    "instances" : 0,
+    "union" : [ "27", "3", "1", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "62"
+  }, {
+    "instances" : 0,
+    "union" : [ "54", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "10"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "8", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "30"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "1", "8", "54", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "63"
+  }, {
+    "instances" : 0,
+    "union" : [ "65", "58", "35", "32", "54" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "64"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "1", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "66"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "8", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "67"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "1", "8", "54", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "68"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "1", "8", "54", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "69"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/AudioMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AudioMedia"
+    },
+    "comment" : {
+      "ja" : "音声メディアに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "70",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/DataRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataRecorder"
+    },
+    "comment" : {
+      "ja" : "データ記録機材に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "71",
+    "superClasses" : [ "1" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "1", "8", "54" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "73",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "77",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "82",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "86",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Program",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Program"
+    },
+    "comment" : {
+      "ja" : "イベントプログラムに関する情報。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "15",
+    "superClasses" : [ "54" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Environment",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Environment"
+    },
+    "comment" : {
+      "ja" : "収録環境のクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "93",
+    "superClasses" : [ "54" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "105",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Context",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Context"
+    },
+    "subClasses" : [ "89", "93", "15", "60", "61" ],
+    "comment" : {
+      "ja" : "収録するイベントに関わる総合的な情報。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "54"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/DataMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataMedia"
+    },
+    "comment" : {
+      "ja" : "データメディアに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "106",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "107",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "108",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "109",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "42",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "50",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "98",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "96",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Recorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Recorder"
+    },
+    "subClasses" : [ "65", "71", "4", "110" ],
+    "comment" : {
+      "ja" : "収録機材に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "1"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "79",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "76",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "104",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Player",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Player"
+    },
+    "subClasses" : [ "28", "117", "58", "39" ],
+    "comment" : {
+      "ja" : "メディアの再生システムに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "112",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "1", "8", "54", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "115"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "84",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "118",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositeProcessor",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositeProcessor"
+    },
+    "comment" : {
+      "ja" : "メディアの編集作業間の包含関係に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "35",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Target",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Target"
+    },
+    "comment" : {
+      "ja" : "収録対象クラス。特定の出演者、オーケストラのパート、楽器などを記述する。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "60",
+    "superClasses" : [ "54" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/SDMEvent",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SDMEvent",
+      "undefined" : "SDM event"
+    },
+    "comment" : {
+      "ja" : "SDMで扱うイベント情報。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "61",
+    "superClasses" : [ "54" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Media",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Media"
+    },
+    "subClasses" : [ "43", "70", "32", "106" ],
+    "comment" : {
+      "ja" : "メディアファイルに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "6"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Geometry",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Geometry"
+    },
+    "comment" : {
+      "ja" : "CoordinateSystemで定義された座標系における座標を記述する。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "27"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositeRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositeRecorder"
+    },
+    "comment" : {
+      "ja" : "収録機材間の包含関係に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "65",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/Contents",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Contents"
+    },
+    "comment" : {
+      "ja" : "メディアやパッケージに関する情報。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "89",
+    "superClasses" : [ "54" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/CompositeMedia",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompositeMedia"
+    },
+    "comment" : {
+      "ja" : "メディアファイル間の包含関係に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "32",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/AudioPlayer",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AudioPlayer"
+    },
+    "comment" : {
+      "ja" : "音声メディアの再生システムに関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "117",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/AudioRecorder",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AudioRecorder"
+    },
+    "comment" : {
+      "ja" : "音声収録機材に関するクラス。"
+    },
+    "attributes" : [ "external" ],
+    "id" : "110",
+    "superClasses" : [ "1" ]
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "5",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "7",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "9",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "17",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "19",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "21",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "22",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "23",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "25",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "31",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "37",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "38",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "40",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "41",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "45",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "46",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "47",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "48",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "49",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "51",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "52",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "59",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "55",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "72",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "74",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "75",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "78",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "83",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "87",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "88",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "92",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "94",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "95",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "97",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "99",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "101",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "102",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "103",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "12",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "33",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "111",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "113",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "100",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "114",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "116",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "119",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "120",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "121",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "122",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "123",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "124",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "125",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "126",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "127",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "128",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "129",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "130",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "131",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "132",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "133",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "134",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "135",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "136",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "137",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "138",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "139",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "140",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "141",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "142",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "143",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "144",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "145",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "146",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "147",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "1",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "1",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "5"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "1",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "7"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referredBy",
+    "inverse" : "12",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "referredBy"
+    },
+    "domain" : "10",
+    "comment" : {
+      "ja" : "参照されることを表す。refersと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "9"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/content",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "content"
+    },
+    "domain" : "15",
+    "comment" : {
+      "ja" : "プログラム内のコンテンツの名称、あるいは、識別できるもの。"
+    },
+    "attributes" : [ "external", "someValues", "datatype" ],
+    "id" : "14"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/content",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "content"
+    },
+    "domain" : "15",
+    "comment" : {
+      "ja" : "プログラム内のコンテンツの名称、あるいは、識別できるもの。"
+    },
+    "attributes" : [ "external", "someValues", "datatype" ],
+    "id" : "17"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "2",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "19"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "2",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "21"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "2",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "22"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "2",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/at",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "at"
+    },
+    "domain" : "26",
+    "comment" : {
+      "ja" : "Geometryを参照する。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "25"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "30",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "29",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "20"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/includedIn",
+    "inverse" : "33",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "includedIn"
+    },
+    "domain" : "24",
+    "comment" : {
+      "ja" : "MediaEventがCompositeMediaに包含されることを表す。includesと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "31"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "2",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "37"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "8",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "38"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "2",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "40"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/startAt",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "42",
+    "label" : {
+      "IRI-based" : "startAt"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "comment" : {
+      "ja" : "メディアの再生区間の開始時間。メディアがもつ相対時間軸の開始時刻。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "41"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referredBy",
+    "inverse" : "12",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "referredBy"
+    },
+    "domain" : "6",
+    "comment" : {
+      "ja" : "参照されることを表す。refersと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "44"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "6",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "8",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "46"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "8",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "6",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/programNumber",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "50",
+    "label" : {
+      "IRI-based" : "programNumber"
+    },
+    "cardinality" : "1",
+    "domain" : "15",
+    "comment" : {
+      "ja" : "プログラムの題目数。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "49"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/outputTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "outputTo"
+    },
+    "domain" : "6",
+    "comment" : {
+      "ja" : "メディアの出力先。inputFromと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "51"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "6",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "52"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/recordedBy",
+    "inverse" : "55",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "recordedBy"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "ContextがRecorderによって収録されることを表す。recordsと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/attends",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "61",
+    "label" : {
+      "IRI-based" : "attends"
+    },
+    "domain" : "60",
+    "comment" : {
+      "ja" : "TargetがSDMEventに参加することを表す。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "59"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/records",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "records"
+    },
+    "domain" : "1",
+    "comment" : {
+      "ja" : "RecorderがContextを収録することを表す。recordedByと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "55"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/performs",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "performs"
+    },
+    "domain" : "60",
+    "comment" : {
+      "ja" : "TargetがProgramを演じる、あるいは、演奏することを表す。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "72"
+  }, {
+    "iri" : "http://schema.org/performer",
+    "baseIri" : "http://schema.org",
+    "range" : "73",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/performer",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "performer"
+    },
+    "domain" : "61",
+    "comment" : {
+      "en" : "A performer at the event—for example, a presenter, musician, musical group or actor."
+    },
+    "attributes" : [ "external", "someValues", "datatype" ],
+    "id" : "74"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/localY",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "76",
+    "label" : {
+      "IRI-based" : "localY"
+    },
+    "cardinality" : "1",
+    "domain" : "60",
+    "comment" : {
+      "ja" : "ローカル空間座標系におけるTargetのy座標。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "75"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/localZ",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "79",
+    "label" : {
+      "IRI-based" : "localZ"
+    },
+    "cardinality" : "1",
+    "domain" : "60",
+    "comment" : {
+      "ja" : "ローカル空間座標系におけるTargetのz座標。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "78"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/measuredBy",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "measuredBy"
+    },
+    "domain" : "62",
+    "comment" : {
+      "ja" : "CoordinateSystemを参照する。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://schema.org/performer",
+    "baseIri" : "http://schema.org",
+    "range" : "77",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/performer",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "performer"
+    },
+    "domain" : "61",
+    "comment" : {
+      "en" : "A performer at the event—for example, a presenter, musician, musical group or actor."
+    },
+    "attributes" : [ "external", "someValues", "datatype" ],
+    "id" : "81"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/localX",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "84",
+    "label" : {
+      "IRI-based" : "localX"
+    },
+    "cardinality" : "1",
+    "domain" : "60",
+    "comment" : {
+      "ja" : "ローカル空間座標系におけるTargetのx座標。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://schema.org/contentLocation",
+    "baseIri" : "http://schema.org",
+    "range" : "82",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/contentLocation",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "contentLocation"
+    },
+    "domain" : "61",
+    "comment" : {
+      "en" : "The location depicted or described in the content. For example, the location in a photograph or painting."
+    },
+    "attributes" : [ "external", "someValues", "datatype" ],
+    "id" : "85"
+  }, {
+    "iri" : "http://schema.org/contentLocation",
+    "baseIri" : "http://schema.org",
+    "range" : "86",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/contentLocation",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "contentLocation"
+    },
+    "domain" : "61",
+    "comment" : {
+      "en" : "The location depicted or described in the content. For example, the location in a photograph or painting."
+    },
+    "attributes" : [ "external", "someValues", "datatype" ],
+    "id" : "87"
+  }, {
+    "range" : "54",
+    "domain" : "89",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "88"
+  }, {
+    "range" : "2",
+    "domain" : "34",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "90"
+  }, {
+    "range" : "54",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "91"
+  }, {
+    "range" : "54",
+    "domain" : "93",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "92"
+  }, {
+    "range" : "2",
+    "domain" : "18",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "94"
+  }, {
+    "iri" : "http://schema.org/performer",
+    "baseIri" : "http://schema.org",
+    "range" : "96",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/performer",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "performer"
+    },
+    "domain" : "61",
+    "comment" : {
+      "en" : "A performer at the event—for example, a presenter, musician, musical group or actor."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "95"
+  }, {
+    "iri" : "http://schema.org/startDate",
+    "baseIri" : "http://schema.org",
+    "range" : "98",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/startDate",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "startDate"
+    },
+    "maxCardinality" : "1",
+    "domain" : "61",
+    "comment" : {
+      "en" : "The start date and time of the item (in ISO 8601 date format)."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "97"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/playedBy",
+    "inverse" : "100",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "playedBy"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "ContextがPlayerによって再生されることを表す。playsと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "99"
+  }, {
+    "range" : "2",
+    "domain" : "36",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "101"
+  }, {
+    "range" : "2",
+    "domain" : "35",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "102"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/mediaStartAt",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "104",
+    "label" : {
+      "IRI-based" : "mediaStartAt"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "comment" : {
+      "ja" : "メディアファイルの記録開始時刻。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "103"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/refers",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "refers"
+    },
+    "domain" : "57",
+    "comment" : {
+      "ja" : "参照することを表す。referredByと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "12"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/includes",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "includes"
+    },
+    "domain" : "32",
+    "comment" : {
+      "ja" : "CompositeMediaがMediaEventを包含することを表す。includedInと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "33"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/endAt",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "112",
+    "label" : {
+      "IRI-based" : "endAt"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "comment" : {
+      "ja" : "メディアの再生区間の終了時間。メディアがもつ相対時間軸の終了時刻。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "111"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/content",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "107",
+    "label" : {
+      "IRI-based" : "content"
+    },
+    "domain" : "15",
+    "comment" : {
+      "ja" : "プログラム内のコンテンツの名称、あるいは、識別できるもの。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "113"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/plays",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "plays"
+    },
+    "domain" : "8",
+    "comment" : {
+      "ja" : "PlayerがContextを再生することを表す。playedByと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "100"
+  }, {
+    "iri" : "http://schema.org/name",
+    "baseIri" : "http://schema.org",
+    "range" : "105",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/name",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "name"
+    },
+    "cardinality" : "1",
+    "domain" : "115",
+    "comment" : {
+      "en" : "The name of the item."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "114"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "63",
+    "label" : {
+      "IRI-based" : "has"
+    },
+    "domain" : "64",
+    "comment" : {
+      "ja" : "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "116"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "has"
+    },
+    "domain" : "35",
+    "comment" : {
+      "ja" : "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "119"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "has"
+    },
+    "domain" : "65",
+    "comment" : {
+      "ja" : "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "120"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/inputFrom",
+    "inverse" : "20",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "inputFrom"
+    },
+    "domain" : "67",
+    "comment" : {
+      "ja" : "メディアの入力元。outputToと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "121"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/recordedBy",
+    "inverse" : "55",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "recordedBy"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "ContextがRecorderによって収録されることを表す。recordsと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "122"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referredBy",
+    "inverse" : "12",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "referredBy"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "参照されることを表す。refersと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "123"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referredBy",
+    "inverse" : "12",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "referredBy"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "参照されることを表す。refersと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "124"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/playedBy",
+    "inverse" : "100",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "playedBy"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "ContextがPlayerによって再生されることを表す。playsと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "125"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/referredBy",
+    "inverse" : "12",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "referredBy"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "参照されることを表す。refersと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "126"
+  }, {
+    "iri" : "http://schema.org/contentUrl",
+    "baseIri" : "http://schema.org",
+    "range" : "109",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/contentUrl",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "contentUrl"
+    },
+    "cardinality" : "1",
+    "domain" : "6",
+    "comment" : {
+      "en" : "Actual bytes of the media object, for example the image file or video file."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "127"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "has"
+    },
+    "domain" : "54",
+    "comment" : {
+      "ja" : "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "128"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "has"
+    },
+    "domain" : "32",
+    "comment" : {
+      "ja" : "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "129"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/has",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "has"
+    },
+    "domain" : "58",
+    "comment" : {
+      "ja" : "インスタンスを包含する。原則として同系統クラスを指し示す。belongsToと逆の意味。"
+    },
+    "attributes" : [ "object", "external", "someValues" ],
+    "id" : "130"
+  }, {
+    "range" : "6",
+    "domain" : "32",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "131"
+  }, {
+    "range" : "6",
+    "domain" : "70",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "132"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/belongsTo",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "68",
+    "label" : {
+      "IRI-based" : "belongsTo"
+    },
+    "domain" : "69",
+    "comment" : {
+      "ja" : "インスタンスに属する。原則として同系統クラスを指し示す。hasと逆の意味。"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "133"
+  }, {
+    "range" : "6",
+    "domain" : "106",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "134"
+  }, {
+    "iri" : "http://schema.org/contentLocation",
+    "baseIri" : "http://schema.org",
+    "range" : "108",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://schema.org/contentLocation",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "contentLocation"
+    },
+    "domain" : "61",
+    "comment" : {
+      "en" : "The location depicted or described in the content. For example, the location in a photograph or painting."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "135"
+  }, {
+    "range" : "8",
+    "domain" : "58",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "136"
+  }, {
+    "range" : "8",
+    "domain" : "117",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "137"
+  }, {
+    "range" : "6",
+    "domain" : "43",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "138"
+  }, {
+    "range" : "8",
+    "domain" : "39",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "139"
+  }, {
+    "range" : "8",
+    "domain" : "28",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "140"
+  }, {
+    "range" : "1",
+    "domain" : "110",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "141"
+  }, {
+    "range" : "1",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "142"
+  }, {
+    "iri" : "http://sdm.hongo.wide.ad.jp/sdmo/eventTime",
+    "baseIri" : "http://sdm.hongo.wide.ad.jp/sdmo",
+    "range" : "118",
+    "label" : {
+      "IRI-based" : "eventTime"
+    },
+    "cardinality" : "1",
+    "domain" : "24",
+    "comment" : {
+      "ja" : "CompositeMediaは相対時間軸上にMediaEventを配置してメディアの包含関係を表す。eventTimeは相対時間軸上のMediaEventを再生開始する位置を定める値である。"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "143"
+  }, {
+    "range" : "54",
+    "domain" : "61",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "144"
+  }, {
+    "range" : "54",
+    "domain" : "60",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "145"
+  }, {
+    "range" : "1",
+    "domain" : "71",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "146"
+  }, {
+    "range" : "1",
+    "domain" : "65",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "147"
+  } ]
+}
